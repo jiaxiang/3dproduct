@@ -1,0 +1,723 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<!-- saved from url=(0062)http://www.360doc.com/content/10/0314/00/992316_18673294.shtml -->
+<HTML 
+xmlns="http://www.w3.org/1999/xhtml"><HEAD><TITLE>PHP图片缩放函数:实现等比例不失真缩放</TITLE>
+<META content=IE=EmulateIE7 http-equiv=X-UA-Compatible>
+<META content="text/html; charset=utf-8" http-equiv=Content-Type>
+<META name=classification content=360doc>
+<META name=keywords content=PHP图片缩放函数:实现等比例不失真缩放>
+<META name=description content=PHP图片缩放函数:实现等比例不失真缩放>
+<META name=author content=www.360doc.com><LINK rel=stylesheet type=text/css 
+href="PHP图片缩放函数实现等比例不失真缩放_files/StickySystemIEBlue.css">
+<SCRIPT language=javascript type=text/javascript>
+        window.onerror = ignoreError;
+        function ignoreError() {
+            return true;
+        }  
+    </SCRIPT>
+
+<META name=GENERATOR content="MSHTML 8.00.7600.16766"></HEAD>
+<BODY onmouseup=setDragEnd() onmousemove=DragDiv(); onclick=delAllDiv(event)>
+<SCRIPT>
+Date.prototype.Format = function(formatStr)    
+{    
+ var Week = ['日','一','二','三','四','五','六'];   
+ return formatStr.replace(/yyyy|YYYY/,this.getFullYear()).replace(/yy|YY/,(this.getYear() % 100)>9?(this.getYear() % 100).toString():'0' + (this.getYear() % 100)).replace(/MM/,(this.getMonth()+1)>9?(this.getMonth()+1).toString():'0' + (this.getMonth()+1)).replace(/M/g,(this.getMonth()+1)).replace(/w|W/g,Week[this.getDay()]).replace(/dd|DD/,this.getDate()>9?this.getDate().toString():'0' + this.getDate()).replace(/d|D/g,this.getDate());    
+};    
+</SCRIPT>
+
+<DIV id=container>
+<DIV class=header>
+<DIV class=day>
+<SCRIPT 
+type=text/javascript>document.write(new Date().Format("yyyy年MM月dd日"));</SCRIPT>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<SCRIPT>document.write(new Date().Format("星期W"));</SCRIPT>
+</DIV>
+<DIV class=help111><A onclick="setHomepage('http://www.360doc.com')" 
+href="javascript:void(0)">设为主页</A>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A 
+onclick="AddFavorite('http://www.360doc.com','360doc个人图书馆')" 
+href="javascript:void(0)">&nbsp;加入收藏</A><B class=help1><A 
+href="http://www.360doc.com/help.html" 
+target=_blank>帮助</A>&nbsp;&nbsp;|&nbsp;&nbsp;<A 
+href="http://www.360doc.com/advice.html" 
+target=_blank>留言交流</A>&nbsp;&nbsp;|&nbsp;&nbsp;<SPAN id=spanLogin> <SPAN 
+id=loginstatus></SPAN></SPAN>&nbsp; &nbsp;</B> </DIV></DIV>
+<DIV class=nav111>
+<DIV class=logo><IMG src="PHP图片缩放函数实现等比例不失真缩放_files/logo.gif" width=147 
+height=63></DIV>
+<DIV class=topnav>
+<DIV class=mainbav>
+<DIV class=nav_wenzi><SPAN style="PADDING-LEFT: 29px; FLOAT: left" 
+class=ziyewz1><A href="http://www.360doc.com/index.html">首页</A></SPAN> <SPAN 
+class="ziyewz mainbavzt">&nbsp;|&nbsp;<A 
+href="http://www.360doc.com/topic.html">主题阅读</A></SPAN> <SPAN 
+class="ziyewz mainbavzt">&nbsp;|&nbsp;<A 
+href="http://www.360doc.com/tags.html">tags</A></SPAN> <SPAN 
+class="ziyewz mainbavzt">&nbsp;|&nbsp;<A 
+href="http://www.360doc.com/catalog.html">精彩目录</A></SPAN> <SPAN 
+class="ziyewz mainbavzt">&nbsp;|&nbsp;<A 
+href="http://www.360doc.com/firstarticle.html">精品文苑</A></SPAN> <SPAN 
+class="ziyewz mainbavzt">&nbsp;|&nbsp;<A 
+href="http://www.360doc.com/topuser.html">会员浏览</A></SPAN> <SPAN 
+style="PADDING-LEFT: 29px" class=ziyewz1><A 
+href="http://www.360doc.com/myfiles.aspx">我的图书馆</A></SPAN> </DIV></DIV>
+<DIV class=subnav>
+<DIV class=sub_a>
+<DIV>
+<H3 class=sub_azt><A 
+href="http://www.360doc.com/leisure.html">休闲·怡情</A>&nbsp;&nbsp;<SPAN 
+style="COLOR: #c0c0c0">|</SPAN>&nbsp;&nbsp;</H3><SPAN style="FLOAT: left" 
+class=navzt><A href="http://www.360doc.com/leisure.html">艺术</A>&nbsp;&nbsp;<A 
+href="http://www.360doc.com/leisure.html">音画</A>&nbsp;&nbsp;<A 
+href="http://www.360doc.com/leisure.html">美女</A>&nbsp;&nbsp;<A 
+href="http://www.360doc.com/leisure.html">笑话</A>&nbsp;&nbsp;<A 
+href="http://www.360doc.com/leisure.html">小游戏</A>&nbsp;&nbsp;<A 
+href="http://www.360doc.com/leisure.html">壁纸</A>&nbsp;&nbsp;<A 
+href="http://www.360doc.com/leisure.html">风景</A></SPAN> </DIV>
+<DIV style="CLEAR: both">
+<H3 class=sub_azt><A 
+href="http://www.360doc.com/health.html">健康·养生</A>&nbsp;&nbsp;<SPAN 
+style="COLOR: #c0c0c0">|</SPAN>&nbsp;&nbsp;</H3><SPAN style="FLOAT: left" 
+class=navzt><A href="http://www.360doc.com/health.html">健身</A>&nbsp;&nbsp;<A 
+href="http://www.360doc.com/health.html">食疗</A>&nbsp;&nbsp;<A 
+href="http://www.360doc.com/health.html">治病</A>&nbsp;&nbsp;<A 
+href="http://www.360doc.com/health.html">中医</A>&nbsp;&nbsp;<A 
+href="http://www.360doc.com/health.html">减肥</A>&nbsp;&nbsp;<A 
+href="http://www.360doc.com/health.html">经穴</A>&nbsp;&nbsp;<A 
+href="http://www.360doc.com/health.html">亚健康</A></SPAN> </DIV></DIV>
+<DIV style="MARGIN-LEFT: 60px" class=sub_a>
+<DIV>
+<H3 class=sub_azt><A 
+href="http://www.360doc.com/life.html">生活·情感</A>&nbsp;&nbsp;<SPAN 
+style="COLOR: #c0c0c0">|</SPAN>&nbsp;&nbsp;</H3><SPAN style="FLOAT: left" 
+class=navzt><A href="http://www.360doc.com/life.html">哲理</A>&nbsp;&nbsp;<A 
+href="http://www.360doc.com/life.html">情感</A>&nbsp;&nbsp;<A 
+href="http://www.360doc.com/life.html">家居</A>&nbsp;&nbsp;<A 
+href="http://www.360doc.com/life.html">母婴</A>&nbsp;&nbsp;<A 
+href="http://www.360doc.com/life.html">美食</A>&nbsp;&nbsp;<A 
+href="http://www.360doc.com/life.html">美容</A>&nbsp;&nbsp;<A 
+href="http://www.360doc.com/life.html">百宝箱</A></SPAN> </DIV>
+<DIV style="CLEAR: both">
+<H3 class=sub_azt><A 
+href="http://www.360doc.com/society.html">文教·社会</A>&nbsp;&nbsp;<SPAN 
+style="COLOR: #c0c0c0">|</SPAN>&nbsp;&nbsp;</H3><SPAN style="FLOAT: left" 
+class=navzt><A href="http://www.360doc.com/society.html">读书</A>&nbsp;&nbsp;<A 
+href="http://www.360doc.com/society.html">人文</A>&nbsp;&nbsp;<A 
+href="http://www.360doc.com/society.html">历史</A>&nbsp;&nbsp;<A 
+href="http://www.360doc.com/society.html">社会</A>&nbsp;&nbsp;<A 
+href="http://www.360doc.com/society.html">教育</A>&nbsp;&nbsp;<A 
+href="http://www.360doc.com/society.html">职场</A>&nbsp;&nbsp;<A 
+href="http://www.360doc.com/society.html">电脑</A></SPAN> 
+</DIV></DIV></DIV></DIV></DIV>
+<DIV style="WORD-BREAK: break-all" class=index_main>
+<DIV class=wenzhang_tit>
+<DIV 
+style="TEXT-ALIGN: center; PADDING-BOTTOM: 15px; PADDING-LEFT: 0px; WIDTH: 740px; PADDING-RIGHT: 0px; COLOR: #b20000; FONT-SIZE: 22px; FONT-WEIGHT: bold; PADDING-TOP: 15px">PHP图片缩放函数:实现等比例不失真缩放 
+（转载）</DIV></DIV>
+<DIV class=wztop>
+<TABLE style="COLOR: #555555; FONT-SIZE: 14px" class=wztop border=0 
+cellSpacing=0 cellPadding=0>
+  <TBODY>
+  <TR>
+    <TD style="PADDING-LEFT: 18px; FONT-SIZE: 12px" class=mz><A 
+      href="http://www.360doc.com/userhome/992316" target=_blank>天才bobo仔</A> </TD>
+    <TD width=8></TD>
+    <TD>收藏于 </TD>
+    <TD width=8></TD>
+    <TD style="FONT-SIZE: 12px">2010-03-14 </TD>
+    <TD width=8></TD>
+    <TD>阅读数：<SPAN style="FONT-SIZE: 12px" id=360doc_Readnum></SPAN> </TD>
+    <TD width=8></TD>
+    <TD><SPAN style="FONT-SIZE: 12px" id=360doc_saverNum class=ym></SPAN></TD>
+    <TD width=8></TD>
+    <TD style="FONT-SIZE: 12px" class=ym><A 
+      href="http://www.leapsoul.cn/?p=118" target=_blank>原文来源</A>　 
+</TD></TR></TBODY></TABLE></DIV>
+<TABLE class=index_main border=0 cellSpacing=0 cellPadding=0>
+  <TBODY>
+  <TR>
+    <TD vAlign=top width=740 align=left>
+      <TABLE border=0 cellSpacing=0 cellPadding=0>
+        <TBODY>
+        <TR>
+          <TD>
+            <DIV style="BACKGROUND-COLOR: #eef3f7" class=wztop2>
+            <TABLE width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=top align=left>
+                  <DIV id=headFirst><SPAN 
+                  class="wenzhang_cz_xx01 link_red_dark"><IMG 
+                  src="PHP图片缩放函数实现等比例不失真缩放_files/add08.gif">&nbsp;<A 
+                  href="http://www.360doc.com/resaveArt.aspx?articleid=18673294" 
+                  target=_blank>转藏到我的图书馆</A></SPAN> </DIV></TD>
+                <TD vAlign=top align=right>
+                  <DIV style="FLOAT: right" 
+            id=headSecond></DIV></TD></TR></TBODY></TABLE></DIV></TD></TR>
+        <TR 
+        style="BORDER-LEFT: #ebf4ea 1px solid; BACKGROUND-COLOR: #f4f9f3; BORDER-RIGHT: #ebf4ea 1px solid">
+          <TD width=740 align=left>
+            <DIV>
+            <DIV style="HEIGHT: 5px"></DIV>
+            <DIV width="100%">
+            <DIV align=center>
+            <DIV style="Z-INDEX: 1">
+            <DIV id=ADAboveArtContent></DIV></DIV></DIV></DIV>
+            <DIV 
+            style="PADDING-BOTTOM: 0px; LINE-HEIGHT: 1.5; PADDING-LEFT: 20px; PADDING-RIGHT: 26px; FONT-SIZE: 16px; PADDING-TOP: 0px"><SPAN 
+            style="MIN-HEIGHT: 245px; HEIGHT: auto !important" id=articlecontent 
+            onmouseup=NewHighlight(event)>
+            <DIV>在PHP网站开发过程中，如果你建立的网站涉及大量的图片处理，必然涉及到图片上传，缩放，而如何保持图片不失真，是很多初级PHP网站开发者比较头疼的一件事，今天David就和大家分享一下如何进行图片缩放。使用之前你需要<A 
+            href="http://www.libgd.org/"><FONT 
+            color=#2970a6>下载安装GD库</FONT></A>，以支持PHP图片处理。下面我们结合代码讲解具体的PHP图片缩放处理的思路。<BR><SPAN 
+            id=more-118></SPAN>
+            <DIV 
+            style="WIDTH: 704px; WHITE-SPACE: nowrap; HEIGHT: 391px; OVERFLOW: auto" 
+            class="codecolorer-container php mac-classic">
+            <TABLE cellSpacing=0 cellPadding=0>
+              <TBODY>
+              <TR>
+                <TD class=line-numbers>
+                  <DIV>1<BR>2<BR>3<BR>4<BR>5<BR>6<BR>7<BR>8<BR>9<BR>10<BR>11<BR>12<BR>13<BR>14<BR>15<BR>16<BR>17<BR>18<BR>19<BR>20<BR>21<BR>22<BR>23<BR>24<BR>25<BR>26<BR>27<BR>28<BR>29<BR>30<BR>31<BR>32<BR>33<BR>34<BR>35<BR>36<BR>37<BR>38<BR>39<BR>40<BR>41<BR>42<BR>43<BR>44<BR>45<BR>46<BR>47<BR>48<BR>49<BR>50<BR>51<BR>52<BR>53<BR>54<BR>55<BR>56<BR></DIV></TD>
+                <TD>
+                  <DIV style="FONT-FAMILY: Monaco,Lucida Console,monospace" 
+                  class="php codecolorer"><SPAN class=kw2><FONT 
+                  color=#0000ff>function</FONT></SPAN> resizeImage<SPAN 
+                  class=br0>(</SPAN><SPAN class=re0><FONT 
+                  color=#318495>$im</FONT></SPAN><SPAN class=sy0>,</SPAN><SPAN 
+                  class=re0><FONT color=#318495>$maxwidth</FONT></SPAN><SPAN 
+                  class=sy0>,</SPAN><SPAN class=re0><FONT 
+                  color=#318495>$maxheight</FONT></SPAN><SPAN 
+                  class=sy0>,</SPAN><SPAN class=re0><FONT 
+                  color=#318495>$name</FONT></SPAN><SPAN class=sy0>,</SPAN><SPAN 
+                  class=re0><FONT color=#318495>$filetype</FONT></SPAN><SPAN 
+                  class=br0>)</SPAN><BR><SPAN class=br0>{</SPAN><BR>&nbsp; 
+                  &nbsp; <SPAN class=re0><FONT 
+                  color=#318495>$pic_width</FONT></SPAN> <SPAN 
+                  class=sy0>=</SPAN> imagesx<SPAN class=br0>(</SPAN><SPAN 
+                  class=re0><FONT color=#318495>$im</FONT></SPAN><SPAN 
+                  class=br0>)</SPAN><SPAN class=sy0>;</SPAN><BR>&nbsp; &nbsp; 
+                  <SPAN class=re0><FONT color=#318495>$pic_height</FONT></SPAN> 
+                  <SPAN class=sy0>=</SPAN> imagesy<SPAN class=br0>(</SPAN><SPAN 
+                  class=re0><FONT color=#318495>$im</FONT></SPAN><SPAN 
+                  class=br0>)</SPAN><SPAN class=sy0>;</SPAN><BR><BR>&nbsp; 
+                  &nbsp; <SPAN class=kw1><FONT 
+                  color=#0000ff>if</FONT></SPAN><SPAN class=br0>(</SPAN><SPAN 
+                  class=br0>(</SPAN><SPAN class=re0><FONT 
+                  color=#318495>$maxwidth</FONT></SPAN> <SPAN 
+                  class=sy0>&amp;&amp;</SPAN> <SPAN class=re0><FONT 
+                  color=#318495>$pic_width</FONT></SPAN> <SPAN 
+                  class=sy0>&gt;</SPAN> <SPAN class=re0><FONT 
+                  color=#318495>$maxwidth</FONT></SPAN><SPAN class=br0>)</SPAN> 
+                  <SPAN class=sy0>||</SPAN> <SPAN class=br0>(</SPAN><SPAN 
+                  class=re0><FONT color=#318495>$maxheight</FONT></SPAN> <SPAN 
+                  class=sy0>&amp;&amp;</SPAN> <SPAN class=re0><FONT 
+                  color=#318495>$pic_height</FONT></SPAN> <SPAN 
+                  class=sy0>&gt;</SPAN> <SPAN class=re0><FONT 
+                  color=#318495>$maxheight</FONT></SPAN><SPAN 
+                  class=br0>)</SPAN><SPAN class=br0>)</SPAN><BR>&nbsp; &nbsp; 
+                  <SPAN class=br0>{</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; <SPAN 
+                  class=kw1><FONT color=#0000ff>if</FONT></SPAN><SPAN 
+                  class=br0>(</SPAN><SPAN class=re0><FONT 
+                  color=#318495>$maxwidth</FONT></SPAN> <SPAN 
+                  class=sy0>&amp;&amp;</SPAN> <SPAN class=re0><FONT 
+                  color=#318495>$pic_width</FONT></SPAN><SPAN 
+                  class=sy0>&gt;</SPAN><SPAN class=re0><FONT 
+                  color=#318495>$maxwidth</FONT></SPAN><SPAN 
+                  class=br0>)</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; <SPAN 
+                  class=br0>{</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                  &nbsp; <SPAN class=re0><FONT 
+                  color=#318495>$widthratio</FONT></SPAN> <SPAN 
+                  class=sy0>=</SPAN> <SPAN class=re0><FONT 
+                  color=#318495>$maxwidth</FONT></SPAN><SPAN 
+                  class=sy0>/</SPAN><SPAN class=re0><FONT 
+                  color=#318495>$pic_width</FONT></SPAN><SPAN 
+                  class=sy0>;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                  &nbsp; <SPAN class=re0><FONT 
+                  color=#318495>$resizewidth_tag</FONT></SPAN> <SPAN 
+                  class=sy0>=</SPAN> <SPAN class=kw2><FONT 
+                  color=#0000ff>true</FONT></SPAN><SPAN 
+                  class=sy0>;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; <SPAN 
+                  class=br0>}</SPAN><BR><BR>&nbsp; &nbsp; &nbsp; &nbsp; <SPAN 
+                  class=kw1><FONT color=#0000ff>if</FONT></SPAN><SPAN 
+                  class=br0>(</SPAN><SPAN class=re0><FONT 
+                  color=#318495>$maxheight</FONT></SPAN> <SPAN 
+                  class=sy0>&amp;&amp;</SPAN> <SPAN class=re0><FONT 
+                  color=#318495>$pic_height</FONT></SPAN><SPAN 
+                  class=sy0>&gt;</SPAN><SPAN class=re0><FONT 
+                  color=#318495>$maxheight</FONT></SPAN><SPAN 
+                  class=br0>)</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; <SPAN 
+                  class=br0>{</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                  &nbsp; <SPAN class=re0><FONT 
+                  color=#318495>$heightratio</FONT></SPAN> <SPAN 
+                  class=sy0>=</SPAN> <SPAN class=re0><FONT 
+                  color=#318495>$maxheight</FONT></SPAN><SPAN 
+                  class=sy0>/</SPAN><SPAN class=re0><FONT 
+                  color=#318495>$pic_height</FONT></SPAN><SPAN 
+                  class=sy0>;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                  &nbsp; <SPAN class=re0><FONT 
+                  color=#318495>$resizeheight_tag</FONT></SPAN> <SPAN 
+                  class=sy0>=</SPAN> <SPAN class=kw2><FONT 
+                  color=#0000ff>true</FONT></SPAN><SPAN 
+                  class=sy0>;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; <SPAN 
+                  class=br0>}</SPAN><BR><BR>&nbsp; &nbsp; &nbsp; &nbsp; <SPAN 
+                  class=kw1><FONT color=#0000ff>if</FONT></SPAN><SPAN 
+                  class=br0>(</SPAN><SPAN class=re0><FONT 
+                  color=#318495>$resizewidth_tag</FONT></SPAN> <SPAN 
+                  class=sy0>&amp;&amp;</SPAN> <SPAN class=re0><FONT 
+                  color=#318495>$resizeheight_tag</FONT></SPAN><SPAN 
+                  class=br0>)</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; <SPAN 
+                  class=br0>{</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                  &nbsp; <SPAN class=kw1><FONT 
+                  color=#0000ff>if</FONT></SPAN><SPAN class=br0>(</SPAN><SPAN 
+                  class=re0><FONT color=#318495>$widthratio</FONT></SPAN><SPAN 
+                  class=sy0>&lt;</SPAN><SPAN class=re0><FONT 
+                  color=#318495>$heightratio</FONT></SPAN><SPAN 
+                  class=br0>)</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                  &nbsp; &nbsp; &nbsp; <SPAN class=re0><FONT 
+                  color=#318495>$ratio</FONT></SPAN> <SPAN class=sy0>=</SPAN> 
+                  <SPAN class=re0><FONT 
+                  color=#318495>$widthratio</FONT></SPAN><SPAN 
+                  class=sy0>;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                  &nbsp; <FONT color=#0000ff><SPAN 
+                  class=kw1>else</SPAN><BR></FONT>&nbsp; &nbsp; &nbsp; &nbsp; 
+                  &nbsp; &nbsp; &nbsp; &nbsp; <SPAN class=re0><FONT 
+                  color=#318495>$ratio</FONT></SPAN> <SPAN class=sy0>=</SPAN> 
+                  <SPAN class=re0><FONT 
+                  color=#318495>$heightratio</FONT></SPAN><SPAN 
+                  class=sy0>;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; <SPAN 
+                  class=br0>}</SPAN><BR><BR>&nbsp; &nbsp; &nbsp; &nbsp; <SPAN 
+                  class=kw1><FONT color=#0000ff>if</FONT></SPAN><SPAN 
+                  class=br0>(</SPAN><SPAN class=re0><FONT 
+                  color=#318495>$resizewidth_tag</FONT></SPAN> <SPAN 
+                  class=sy0>&amp;&amp;</SPAN> <SPAN class=sy0>!</SPAN><SPAN 
+                  class=re0><FONT 
+                  color=#318495>$resizeheight_tag</FONT></SPAN><SPAN 
+                  class=br0>)</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                  &nbsp; <SPAN class=re0><FONT 
+                  color=#318495>$ratio</FONT></SPAN> <SPAN class=sy0>=</SPAN> 
+                  <SPAN class=re0><FONT 
+                  color=#318495>$widthratio</FONT></SPAN><SPAN 
+                  class=sy0>;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; <SPAN 
+                  class=kw1><FONT color=#0000ff>if</FONT></SPAN><SPAN 
+                  class=br0>(</SPAN><SPAN class=re0><FONT 
+                  color=#318495>$resizeheight_tag</FONT></SPAN> <SPAN 
+                  class=sy0>&amp;&amp;</SPAN> <SPAN class=sy0>!</SPAN><SPAN 
+                  class=re0><FONT 
+                  color=#318495>$resizewidth_tag</FONT></SPAN><SPAN 
+                  class=br0>)</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                  &nbsp; <SPAN class=re0><FONT 
+                  color=#318495>$ratio</FONT></SPAN> <SPAN class=sy0>=</SPAN> 
+                  <SPAN class=re0><FONT 
+                  color=#318495>$heightratio</FONT></SPAN><SPAN 
+                  class=sy0>;</SPAN><BR><BR>&nbsp; &nbsp; &nbsp; &nbsp; <SPAN 
+                  class=re0><FONT color=#318495>$newwidth</FONT></SPAN> <SPAN 
+                  class=sy0>=</SPAN> <SPAN class=re0><FONT 
+                  color=#318495>$pic_width</FONT></SPAN> <SPAN 
+                  class=sy0>*</SPAN> <SPAN class=re0><FONT 
+                  color=#318495>$ratio</FONT></SPAN><SPAN 
+                  class=sy0>;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; <SPAN 
+                  class=re0><FONT color=#318495>$newheight</FONT></SPAN> <SPAN 
+                  class=sy0>=</SPAN> <SPAN class=re0><FONT 
+                  color=#318495>$pic_height</FONT></SPAN> <SPAN 
+                  class=sy0>*</SPAN> <SPAN class=re0><FONT 
+                  color=#318495>$ratio</FONT></SPAN><SPAN 
+                  class=sy0>;</SPAN><BR><BR>&nbsp; &nbsp; &nbsp; &nbsp; <SPAN 
+                  class=kw1><FONT color=#0000ff>if</FONT></SPAN><SPAN 
+                  class=br0>(</SPAN><A 
+                  href="http://www.php.net/function_exists"><SPAN 
+                  class=kw3>function_exists</SPAN></A><SPAN 
+                  class=br0>(</SPAN><SPAN class=st0><FONT 
+                  color=#036a07>"imagecopyresampled"</FONT></SPAN><SPAN 
+                  class=br0>)</SPAN><SPAN class=br0>)</SPAN><BR>&nbsp; &nbsp; 
+                  &nbsp; &nbsp; <SPAN class=br0>{</SPAN><BR>&nbsp; &nbsp; &nbsp; 
+                  &nbsp; &nbsp; &nbsp; <SPAN class=re0><FONT 
+                  color=#318495>$newim</FONT></SPAN> <SPAN class=sy0>=</SPAN> 
+                  imagecreatetruecolor<SPAN class=br0>(</SPAN><SPAN 
+                  class=re0><FONT color=#318495>$newwidth</FONT></SPAN><SPAN 
+                  class=sy0>,</SPAN><SPAN class=re0><FONT 
+                  color=#318495>$newheight</FONT></SPAN><SPAN 
+                  class=br0>)</SPAN><SPAN class=sy0>;</SPAN><BR>&nbsp; &nbsp; 
+                  &nbsp; &nbsp; &nbsp; &nbsp;imagecopyresampled<SPAN 
+                  class=br0>(</SPAN><SPAN class=re0><FONT 
+                  color=#318495>$newim</FONT></SPAN><SPAN 
+                  class=sy0>,</SPAN><SPAN class=re0><FONT 
+                  color=#318495>$im</FONT></SPAN><SPAN class=sy0>,</SPAN><SPAN 
+                  class=nu0><FONT color=#0000cd>0</FONT></SPAN><SPAN 
+                  class=sy0>,</SPAN><SPAN class=nu0><FONT 
+                  color=#0000cd>0</FONT></SPAN><SPAN class=sy0>,</SPAN><SPAN 
+                  class=nu0><FONT color=#0000cd>0</FONT></SPAN><SPAN 
+                  class=sy0>,</SPAN><SPAN class=nu0><FONT 
+                  color=#0000cd>0</FONT></SPAN><SPAN class=sy0>,</SPAN><SPAN 
+                  class=re0><FONT color=#318495>$newwidth</FONT></SPAN><SPAN 
+                  class=sy0>,</SPAN><SPAN class=re0><FONT 
+                  color=#318495>$newheight</FONT></SPAN><SPAN 
+                  class=sy0>,</SPAN><SPAN class=re0><FONT 
+                  color=#318495>$pic_width</FONT></SPAN><SPAN 
+                  class=sy0>,</SPAN><SPAN class=re0><FONT 
+                  color=#318495>$pic_height</FONT></SPAN><SPAN 
+                  class=br0>)</SPAN><SPAN class=sy0>;</SPAN><BR>&nbsp; &nbsp; 
+                  &nbsp; &nbsp; <SPAN class=br0>}</SPAN><BR>&nbsp; &nbsp; &nbsp; 
+                  &nbsp; <FONT color=#0000ff><SPAN 
+                  class=kw1>else</SPAN><BR></FONT>&nbsp; &nbsp; &nbsp; &nbsp; 
+                  <SPAN class=br0>{</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                  &nbsp; <SPAN class=re0><FONT 
+                  color=#318495>$newim</FONT></SPAN> <SPAN class=sy0>=</SPAN> 
+                  imagecreate<SPAN class=br0>(</SPAN><SPAN class=re0><FONT 
+                  color=#318495>$newwidth</FONT></SPAN><SPAN 
+                  class=sy0>,</SPAN><SPAN class=re0><FONT 
+                  color=#318495>$newheight</FONT></SPAN><SPAN 
+                  class=br0>)</SPAN><SPAN class=sy0>;</SPAN><BR>&nbsp; &nbsp; 
+                  &nbsp; &nbsp; &nbsp; &nbsp;imagecopyresized<SPAN 
+                  class=br0>(</SPAN><SPAN class=re0><FONT 
+                  color=#318495>$newim</FONT></SPAN><SPAN 
+                  class=sy0>,</SPAN><SPAN class=re0><FONT 
+                  color=#318495>$im</FONT></SPAN><SPAN class=sy0>,</SPAN><SPAN 
+                  class=nu0><FONT color=#0000cd>0</FONT></SPAN><SPAN 
+                  class=sy0>,</SPAN><SPAN class=nu0><FONT 
+                  color=#0000cd>0</FONT></SPAN><SPAN class=sy0>,</SPAN><SPAN 
+                  class=nu0><FONT color=#0000cd>0</FONT></SPAN><SPAN 
+                  class=sy0>,</SPAN><SPAN class=nu0><FONT 
+                  color=#0000cd>0</FONT></SPAN><SPAN class=sy0>,</SPAN><SPAN 
+                  class=re0><FONT color=#318495>$newwidth</FONT></SPAN><SPAN 
+                  class=sy0>,</SPAN><SPAN class=re0><FONT 
+                  color=#318495>$newheight</FONT></SPAN><SPAN 
+                  class=sy0>,</SPAN><SPAN class=re0><FONT 
+                  color=#318495>$pic_width</FONT></SPAN><SPAN 
+                  class=sy0>,</SPAN><SPAN class=re0><FONT 
+                  color=#318495>$pic_height</FONT></SPAN><SPAN 
+                  class=br0>)</SPAN><SPAN class=sy0>;</SPAN><BR>&nbsp; &nbsp; 
+                  &nbsp; &nbsp; <SPAN class=br0>}</SPAN><BR><BR>&nbsp; &nbsp; 
+                  &nbsp; &nbsp; <SPAN class=re0><FONT 
+                  color=#318495>$name</FONT></SPAN> <SPAN class=sy0>=</SPAN> 
+                  <SPAN class=re0><FONT color=#318495>$name</FONT></SPAN><SPAN 
+                  class=sy0>.</SPAN><SPAN class=re0><FONT 
+                  color=#318495>$filetype</FONT></SPAN><SPAN 
+                  class=sy0>;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; 
+                  imagejpeg<SPAN class=br0>(</SPAN><SPAN class=re0><FONT 
+                  color=#318495>$newim</FONT></SPAN><SPAN 
+                  class=sy0>,</SPAN><SPAN class=re0><FONT 
+                  color=#318495>$name</FONT></SPAN><SPAN class=br0>)</SPAN><SPAN 
+                  class=sy0>;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; 
+                  imagedestroy<SPAN class=br0>(</SPAN><SPAN class=re0><FONT 
+                  color=#318495>$newim</FONT></SPAN><SPAN 
+                  class=br0>)</SPAN><SPAN class=sy0>;</SPAN><BR>&nbsp; &nbsp; 
+                  <SPAN class=br0>}</SPAN><BR>&nbsp; &nbsp; <FONT 
+                  color=#0000ff><SPAN class=kw1>else</SPAN><BR></FONT>&nbsp; 
+                  &nbsp; <SPAN class=br0>{</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; 
+                  <SPAN class=re0><FONT color=#318495>$name</FONT></SPAN> <SPAN 
+                  class=sy0>=</SPAN> <SPAN class=re0><FONT 
+                  color=#318495>$name</FONT></SPAN><SPAN class=sy0>.</SPAN><SPAN 
+                  class=re0><FONT color=#318495>$filetype</FONT></SPAN><SPAN 
+                  class=sy0>;</SPAN><BR>&nbsp; &nbsp; &nbsp; &nbsp; 
+                  imagejpeg<SPAN class=br0>(</SPAN><SPAN class=re0><FONT 
+                  color=#318495>$im</FONT></SPAN><SPAN class=sy0>,</SPAN><SPAN 
+                  class=re0><FONT color=#318495>$name</FONT></SPAN><SPAN 
+                  class=br0>)</SPAN><SPAN class=sy0>;</SPAN><BR>&nbsp; &nbsp; 
+                  <SPAN class=br0>}</SPAN> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                  <BR><SPAN class=br0>}</SPAN></DIV></TD></TR></TBODY></TABLE></DIV>
+            <P><STRONG>参数说明</STRONG>：</P>
+            <P>$im 
+            图片对象，应用函数之前，<STRONG>你需要用imagecreatefromjpeg()读取图片对象，如果PHP环境支持PNG，GIF，也可使用imagecreatefromgif()，imagecreatefrompng()</STRONG>；</P>
+            <P>$maxwidth 定义生成图片的最大宽度（单位：像素）</P>
+            <P>$maxheight 生成图片的最大高度（单位：像素）</P>
+            <P>$name 生成的图片名</P>
+            <P>$filetype 最终生成的图片类型（.jpg/.png/.gif）</P>
+            <P><STRONG>代码注释</STRONG>：</P>
+            <P>第3~4行：读取需要缩放的图片实际宽高</P>
+            <P>第8~26行：通过计算实际图片宽高与需要生成图片的宽高的压缩比例最终得出进行图片缩放是根据宽度还是高度进行缩放，当前程序是根据宽度进行图片缩放。<STRONG>如果你想根据高度进行图片缩放，你可以将第22行的语句改成$widthratio&gt;$heightratio</STRONG></P>
+            <P>第28~31行：如果实际图片的长度或者宽度小于规定生成图片的长度或者宽度，则要么根据长度进行图片缩放，要么根据宽度进行图片缩放。</P>
+            <P>第33~34行：计算最终缩放生成的图片长宽。</P>
+            <P>第36~45行：根据计算出的最终生成图片的长宽改变图片大小，<STRONG>有两种改变图片大小的方法</STRONG>：ImageCopyResized()函数在所有GD版本中有效，但其缩放图像的算法比较粗糙。ImageCopyResamples()，其像素插值算法得到的图像边缘比较平滑，但该函数的速度比ImageCopyResized()慢。</P>
+            <P>第47~49行：最终生成经过处理后的图片，<STRONG>如果你需要生成GIF或PNG，你需要将imagejpeg()函数改成imagegif()或imagepng()</STRONG></P>
+            <P>第51~56行：如果实际图片的长宽小于规定生成的图片长宽，则保持图片原样，同理，如果你需要生成GIF或PNG，你需要将imagejpeg()函数改成imagegif()或imagepng()。</P>
+            <P><STRONG>特别说明</STRONG>：</P>
+            <P>　　GD库1.6.2版以前支持GIF格式，但因GIF格式使用LZW演算法牵涉专利权，因此在GD1.6.2版之后不支持GIF的格式。如果你是WINDOWS的环境，你只要进入PHP.INI文件找到extension=php_gd2.dll，将#去除，重启APACHE即可，如果你是Linux环境，又想支持GIF，PNG，JPEG，你需要去<A 
+            href="http://www.libpng.org/pub/png/libpng.html"><FONT 
+            color=#2970a6>下载libpng</FONT></A>，<A 
+            href="http://www.zlib.net/"><FONT color=#2970a6>zlib</FONT></A>，以及<A 
+            href="http://www.freetype.org/"><FONT 
+            color=#2970a6>freetype字体</FONT></A>并安装。</P>
+            <P>　　OK，PHP图片压缩函数完成，最后我们概述一下整个处理的思路：</P>
+            <P>　　通过计算实际图片的长宽与规定生成图片的长宽之间的缩放比例，根据实际的需求（按照宽度还是按照高度进行图片缩放）计算出最终生成图片的大小，然后应用PHP图片处理函数对图片进行处理，最后输出图片。</P>
+            <P>　　以上就是关于PHP图片处理中如何对图片进行压缩并保持不失真的函数说明，有疑问或者好的建议欢迎给我留言，下次我将分享在PHP网站开发建设完成后，由于图片目录没有规划好，我们该<A 
+            href="http://www.leapsoul.cn/?p=136"><FONT 
+            color=#2970a6>如何对图片进行迁移</FONT></A>的思路。</P></DIV></SPAN></DIV>
+            <DIV 
+            style="PADDING-BOTTOM: 0px; PADDING-LEFT: 26px; PADDING-RIGHT: 26px; PADDING-TOP: 0px" 
+            id=360docIsStranger></DIV>
+            <DIV style="TEXT-ALIGN: center; BACKGROUND-COLOR: #f4f9f3" 
+            id=360Ad07Below></DIV>
+            <DIV class=wztop2>
+            <DIV style="PADDING-LEFT: 14px">
+            <DIV style="FLOAT: left"><SPAN id=saverDiv></SPAN></DIV>
+            <DIV 
+            style="PADDING-RIGHT: 26px; FLOAT: right"><SPAN>此文来自&nbsp;&nbsp;<SPAN 
+            style="FONT-WEIGHT: bold" class=mz><A 
+            href="http://www.360doc.com/userhome/992316" 
+            target=_blank>天才bobo仔</A></SPAN>&nbsp;&nbsp;的文件夹&nbsp;&nbsp;</SPAN><SPAN 
+            class="bulebold bulelink">[<A 
+            href="http://www.360doc.com/userhome.aspx?userid=992316&amp;cid=1" 
+            target=_blank>我的图书馆</A>]</SPAN></DIV></DIV></DIV>
+            <DIV 
+            style="BORDER-BOTTOM: #a8a8a8 1px dashed; MARGIN: 0px 26px; HEIGHT: 11px"></DIV>
+            <DIV class=wenzhang_bt_list>
+            <DIV 
+            style="BACKGROUND-COLOR: #f4f9f3; MIN-HEIGHT: 50px; PADDING-LEFT: 26px">
+            <DIV style="FLOAT: left" id=UserPreNextArt></DIV>
+            <DIV style="PADDING-RIGHT: 26px; FLOAT: right">
+            <DIV id=360FriendLink></DIV></DIV></DIV></DIV>
+            <DIV id=ad02New class=ad02></DIV>
+            <DIV 
+            style="POSITION: absolute; PADDING-LEFT: 13px; WIDTH: 120px; WORD-BREAK: break-all; TOP: 250px; LEFT: 0px" 
+            id=divadleft>
+            <SCRIPT type=text/javascript><!--
+         function leftshow()
+         {
+            var screenwidth=screen.availWidth;
+            var ad_left= '';
+            try
+            {
+                if(screenwidth>1200) 
+                { 
+                    ad_left+='<'+'script type=\"text/javascript\">';
+                    ad_left+='google_ad_client = "pub-6625678643128649";';
+                    ad_left+='google_ad_slot =\"7792148991\";';
+                    ad_left+='google_ad_width =120;';
+                    ad_left+='google_ad_height = 600;';  
+                    ad_left+='</'+'script>';
+                    ad_left+='<'+'script type=\"text/javascript\"';
+                    ad_left+='src=\"http://pagead2.googlesyndication.com/pagead/show_ads.js\">';
+                    ad_left+='</'+'script>';
+                }
+                document.write(ad_left);
+            }
+            catch(e)
+            {
+            }
+        }
+ 
+        leftshow();
+        -->
+                            </SCRIPT>
+
+            <DIV 
+            style="BACKGROUND-COLOR: #fff; PADDING-RIGHT: 2px; FLOAT: right; PADDING-TOP: 2px" 
+            class=link_underline><A 
+            onclick="document.getElementById('divadleft').style.display='none'" 
+            href="http://www.360doc.com/content/10/0314/00/992316_18673294.shtml#">关闭</A></DIV></DIV>
+            <SCRIPT>
+    var screenwidth=screen.availWidth;
+    try
+    {
+        if(screenwidth<=1200) 
+        { 
+            document.getElementById("divadleft").style.display="none";
+            document.getElementById("divadright").style.display="none";
+        }   
+    }
+    catch(e)
+    {
+    }
+                        </SCRIPT>
+            </DIV>
+            <DIV style="BACKGROUND-COLOR: #f4f9f3; HEIGHT: 22px"></DIV></TD></TR>
+        <TR>
+          <TD>
+            <DIV style="HEIGHT: 0px !important"></DIV>
+            <DIV style="WIDTH: 740px" id=360docMoreArt>﻿ 
+            <DIV class=wenzhang_bt>相关文章</DIV>
+            <DIV class=wenzhang_bt_list>
+            <UL>
+              <LI><A 
+              href="http://www.360doc.com/content/08/0108/02/12542_954168.shtml" 
+              target=_blank>如何限制页面中图片的大小 at catch the digita...</A><SPAN 
+              class="time3 link_green">2008-01-08 &nbsp;&nbsp;&nbsp;&nbsp;<A 
+              href="http://www.360doc.com/UserHome/12542" 
+              target=_blank>沙漠之子</A></SPAN> 
+              <LI><A 
+              href="http://www.360doc.com/content/08/1130/18/55585_2025000.shtml" 
+              target=_blank>如果你们没进过这些网站，进来看看。</A><SPAN 
+              class="time3 link_green">2008-11-30 &nbsp;&nbsp;&nbsp;&nbsp;<A 
+              href="http://www.360doc.com/UserHome/55585" 
+              target=_blank>百川归海</A></SPAN> 
+              <LI><A 
+              href="http://www.360doc.com/content/08/0825/14/73322_1574922.shtml" 
+              target=_blank>打发时光的100个休闲网站...很有意思的，个个都很个性</A><SPAN 
+              class="time3 link_green">2008-08-25 &nbsp;&nbsp;&nbsp;&nbsp;<A 
+              href="http://www.360doc.com/UserHome/73322" 
+              target=_blank>hhj2cl</A></SPAN> 
+              <LI><A 
+              href="http://www.360doc.com/content/10/0222/02/812239_16403030.shtml" 
+              target=_blank>小资们休闲时必进的55个网站!!【校内豪华小资日志】请保存分享！...</A><SPAN 
+              class="time3 link_green">2010-02-22 &nbsp;&nbsp;&nbsp;&nbsp;<A 
+              href="http://www.360doc.com/UserHome/812239" 
+              target=_blank>我爱我儿子</A></SPAN> 
+              <LI><A 
+              href="http://www.360doc.com/content/09/0708/10/150430_4184536.shtml" 
+              target=_blank>教你如何在空间贴图片、贴背景、贴音乐、贴flash动画</A><SPAN 
+              class="time3 link_green">2009-07-08 &nbsp;&nbsp;&nbsp;&nbsp;<A 
+              href="http://www.360doc.com/UserHome/150430" 
+              target=_blank>红景天</A></SPAN> 
+              <LI><A 
+              href="http://www.360doc.com/content/06/0515/17/3500_116442.shtml" 
+              target=_blank>一个简单的不需要gd库的验证码方案</A><SPAN 
+              class="time3 link_green">2006-05-15 &nbsp;&nbsp;&nbsp;&nbsp;<A 
+              href="http://www.360doc.com/UserHome/3500" 
+              target=_blank>Ralf_Jones</A></SPAN> 
+              <LI><A 
+              href="http://www.360doc.com/content/06/0321/15/7138_83114.shtml" 
+              target=_blank>自动生成缩略图(质量没有损失)</A><SPAN 
+              class="time3 link_green">2006-03-21 &nbsp;&nbsp;&nbsp;&nbsp;<A 
+              href="http://www.360doc.com/UserHome/7138" 
+              target=_blank>basicx</A></SPAN> 
+              <LI><A 
+              href="http://www.360doc.com/content/07/0602/12/19147_534165.shtml" 
+              target=_blank>各种免费在线工具收集</A><SPAN 
+              class="time3 link_green">2007-06-02 &nbsp;&nbsp;&nbsp;&nbsp;<A 
+              href="http://www.360doc.com/UserHome/19147" 
+              target=_blank>悟静</A></SPAN> </LI></UL>
+            <DIV style="FLOAT: right; FONT-SIZE: 12px" class=link_underline><A 
+            href="http://www.360doc.com/relevant/18229617_more.shtml" 
+            target=_blank>查看更多文章&gt;&gt;</A></DIV></DIV></DIV>
+            <DIV id=Reflction>
+            <DIV 
+            style="BACKGROUND-COLOR: #edf3f7; PADDING-LEFT: 10px; WIDTH: 730px" 
+            id=360docRefTN class=wenzhang_btnew1></DIV>
+            <DIV id=360docRefCT></DIV>
+            <DIV id=360docRefPB align=center></DIV></DIV>
+            <DIV 
+            style="BACKGROUND-COLOR: #fff; PADDING-LEFT: 30px; COLOR: #4a4a4a" 
+            class=wenzhang_btnew1>发表评论：<SPAN id=isLogInSpan 
+            class="wenzhang_pl_fb_tit link_red"></SPAN> </DIV>
+            <DIV style="PADDING-LEFT: 30px" id=ReflectionPart>
+            <TABLE cellSpacing=0 cellPadding=0 width="100%">
+              <TBODY>
+              <TR>
+                <TD vAlign=top align=left><TEXTAREA style="WIDTH: 680px" id=SendRefTB rows=12 name=textarea></TEXTAREA> 
+                </TD>
+                <TD id=360docTdAdID vAlign=top align=right>
+                  <DIV id=360docAdReflection></DIV></TD></TR>
+              <TR>
+                <TD height=5></TD>
+                <TD></TD></TR>
+              <TR>
+                <TD>
+                  <DIV style="WIDTH: 685px" id=360docRelfection align=right><IMG 
+                  style="CURSOR: pointer" id=SendRefBtn 
+                  onclick=SubmitReflection(); 
+                  src="PHP图片缩放函数实现等比例不失真缩放_files/an14.gif"> </DIV></TD>
+                <TD></TD></TR></TBODY></TABLE></DIV></TD></TR></TBODY></TABLE></TD>
+    <TD vAlign=top align=middle>
+      <DIV style="MARGIN-LEFT: 20px">
+      <DIV>
+      <SCRIPT type=text/javascript>google_ad_client = 'pub-6625678643128649';google_ad_slot = '0378477824';google_ad_width = 180;google_ad_height = 90;</SCRIPT>
+
+      <SCRIPT type=text/javascript 
+      src="PHP图片缩放函数实现等比例不失真缩放_files/show_ads.js"></SCRIPT>
+      </DIV>
+      <DIV style="WIDTH: 178px" class=WidthRight>
+      <DIV class=wenzhang_bt>热点推荐</DIV>
+      <DIV class=wenzhang_bt_listCG>
+      <UL>
+        <LI><A onclick="ClickStatics('wz1')" 
+        href="http://www.360doc.com/content/08/0911/16/20425_1631872.shtml" 
+        target=_blank>中国GDP ＶS ... </A>
+        <LI><A onclick="ClickStatics('wz1')" 
+        href="http://www.360doc.com/content/09/0309/22/51604_2762035.shtml" 
+        target=_blank>东陵大盗孙殿英临终忏悔... </A>
+        <LI><A onclick="ClickStatics('wz1')" 
+        href="http://www.360doc.com/content/08/0523/14/9807_1278914.shtml" 
+        target=_blank>职业就是阶层 </A>
+        <LI><A onclick="ClickStatics('wz1')" 
+        href="http://www.360doc.com/content/07/0410/23/14515_441019.shtml" 
+        target=_blank>暗示的力量（墨菲） </A>
+        <LI><A onclick="ClickStatics('wz1')" 
+        href="http://www.360doc.com/content/09/0227/13/9807_2658432.shtml" 
+        target=_blank>副手须知 </A>
+        <LI><A onclick="ClickStatics('wz1')" 
+        href="http://www.360doc.com/content/09/0323/16/72087_2893004.shtml" 
+        target=_blank>七个心理寓言 </A>
+        <LI><A onclick="ClickStatics('wz1')" 
+        href="http://www.360doc.com/content/07/0119/16/14324_337065.shtml" 
+        target=_blank>杜郎口中学教学模式的调... </A>
+        <LI><A onclick="ClickStatics('wz1')" 
+        href="http://www.360doc.com/content/05/1221/12/1271_47457.shtml" 
+        target=_blank>[贴图]全世界最贵、最... </A>
+        <LI><A onclick="ClickStatics('wz1')" 
+        href="http://www.360doc.com/content/09/0324/15/97184_2903301.shtml" 
+        target=_blank>茶艺：水如何处理才可泡... </A>
+        <LI><A onclick="ClickStatics('wz1')" 
+        href="http://www.360doc.com/content/09/0210/17/19782_2508091.shtml" 
+        target=_blank>《育儿心得之二：我家让... </A>
+        <LI><A onclick="ClickStatics('wz1')" 
+        href="http://www.360doc.com/content/08/0823/00/142_1567687.shtml" 
+        target=_blank>官方回应两老太示威被劳... </A>
+        <LI><A onclick="ClickStatics('wz1')" 
+        href="http://www.360doc.com/content/08/0603/18/13012_1307044.shtml" 
+        target=_blank>[转]女人 ... </A>
+        <LI><A onclick="ClickStatics('wz1')" 
+        href="http://www.360doc.com/content/08/1122/11/13012_1977017.shtml" 
+        target=_blank>从顺口溜中学好地理知识... </A>
+        <LI><A onclick="ClickStatics('wz1')" 
+        href="http://www.360doc.com/content/06/0809/17/9737_177381.shtml" 
+        target=_blank>人生的幸福 </A>
+        <LI><A onclick="ClickStatics('wz1')" 
+        href="http://www.360doc.com/content/08/0606/23/22784_1314705.shtml" 
+        target=_blank>中国知识分子的历史轨迹 </A>
+        <LI><A onclick="ClickStatics('wz1')" 
+        href="http://www.360doc.com/content/09/0123/21/88761_2390635.shtml" 
+        target=_blank>上海散步 （组图）八 </A>
+        <LI><A onclick="ClickStatics('wz1')" 
+        href="http://www.360doc.com/content/06/0902/21/10467_197148.shtml" 
+        target=_blank>研究生考试技巧的重要性... </A>
+        <LI><A onclick="ClickStatics('wz1')" 
+        href="http://www.360doc.com/content/09/0421/11/37063_3210741.shtml" 
+        target=_blank>中国十大“最美湖泊”（... </A>
+        <LI><A onclick="ClickStatics('wz1')" 
+        href="http://www.360doc.com/content/09/0120/23/83855_2374100.shtml" 
+        target=_blank>组图:竟然如此好色 </A>
+        <LI><A onclick="ClickStatics('wz1')" 
+        href="http://www.360doc.com/content/09/0104/10/77484_2256952.shtml" 
+        target=_blank>怎样背单词（来自李开复... </A></LI></UL><BR></DIV></DIV>
+      <DIV id=AdArtRight align=center></DIV>
+      <DIV id=360docAdBetween></DIV>
+      <DIV id=Getbook_list 
+class=WidthRight></DIV></DIV></TD></TR></TBODY></TABLE></DIV>
+<SCRIPT language=javascript type=text/javascript>var ArticleID=18673294;var userid=992316;var SearchByArt="href='http://www.google.com.hk/search?hl=zh-CN&amp;q=%e5%9b%be%e7%89%87%2bphp%2b%e5%87%bd%e6%95%b0&amp;lr=lang_zh-CN' target='_blank'";var xmlHttp=null;var xmlDom =null;var xslDom =null;</SCRIPT>
+
+<SCRIPT language=javascript type=text/javascript>
+    var appName = navigator.appName.toLowerCase();
+    if (appName.indexOf("microsoft internet explorer") > -1) {
+        document.write("<scr" + "ipt type='text/javascript' src='http://www.360doc.com/js/StickySystemIE090401.js'></sc" + "ript>");
+    }
+    else {
+        document.write("<scr" + "ipt type='text/javascript' src='http://www.360doc.com/js/StickySystemOther090401.js'></sc" + "ript>");
+    }
+
+</SCRIPT>
+
+<SCRIPT>GerLookingUserInfo(1,992316,1);</SCRIPT>
+
+<DIV class=footer>
+<DIV>北京六智信息技术有限公司&nbsp;&nbsp;Copyright © 2005-2011 360doc.com ,&nbsp;&nbsp;All 
+Rights Reserved </DIV>
+<DIV style="PADDING-TOP: 5px"><A href="http://www.360doc.com/service.html" 
+target=_blank>服务条款</A> <A onclick="setHomepage('http://www.360doc.com')" 
+href="javascript:void(0)">设360doc为首页</A> <A 
+href="http://www.360doc.com/advice.html" target=_blank>留言交流</A> <A 
+href="http://www.360doc.com/contactus.html" target=_blank>联系我们</A> <A 
+href="http://www.360doc.com/friendlink.html" target=_blank>友情链接</A> </DIV>
+<DIV>
+<TABLE border=0 cellSpacing=0 cellPadding=0 align=center>
+  <TBODY>
+  <TR>
+    <TD>
+      <DIV><A href="http://www.miibeian.gov.cn/" 
+      target=_blank>京ICP证090625号</A>&nbsp;&nbsp;京ICP备05038915号&nbsp;&nbsp;北京市公安局朝阳分局备案编号:1101051118 
+      </DIV></TD>
+    <TD><A 
+      href="http://www.hd315.gov.cn/beian/view.asp?bianhao=010202009120700006" 
+      target=_blank><IMG src="PHP图片缩放函数实现等比例不失真缩放_files/biaoshi.gif"></A> 
+  </TD></TR></TBODY></TABLE></DIV></DIV></DIV></BODY></HTML>

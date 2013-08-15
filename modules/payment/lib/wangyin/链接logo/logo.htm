@@ -1,0 +1,232 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>网银在线支付普及风暴--“我为支付狂”</title>
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color: #336699;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 18px;
+	font-weight: normal;
+	color: #333333;
+	text-decoration: none;
+}
+a:link {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #336699;
+	text-decoration: underline;
+}
+a:visited {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #336699;
+	text-decoration: underline;
+}
+a:hover {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #666666;
+	text-decoration: underline;
+}
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE8 {
+	color: #336699;
+	font-weight: bold;
+}
+.STYLE7 {	color: #f60;
+	font-weight: bold;
+}
+.STYLE10 {color: #336699; font-weight: bold; font-size: 14px; }
+-->
+</style>
+<SCRIPT language=javascript src="/js/selectcity.js"></SCRIPT>
+<script language="JavaScript" type="text/JavaScript">
+<!--
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+<SCRIPT language=javascript>
+<!--
+function checkvalue()
+  {
+    if (document.wqform.name.value=="")
+    {
+      document.wqform.name.focus();
+      window.alert("请填写用户名！");
+      return false;
+    }
+    if(document.wqform.name.value.length < 2) 
+	{
+	document.wqform.name.focus();
+    alert("用户名长度限制为2-25位，请重新输入！");
+	return false;
+    }
+   if (document.wqform.password.value=="")
+    {
+      document.wqform.password.focus();
+      window.alert("请填写密码！");
+      return false;
+    }
+    if(document.wqform.password.value.length < 6)
+	 {
+	document.wqform.password.focus();
+    alert("密码长度限制为6-16位，请重新输入！");
+	return false;
+    }
+    if(document.wqform.password.value != document.wqform.password1.value) 
+	{
+	document.wqform.password.focus();
+	document.wqform.password.value = '';
+	document.wqform.password1.value = '';
+    alert("两次输入的密码不同，请重新输入！");
+	return false;
+    }
+   if (document.wqform.zcjym.value=="")
+    {
+      document.wqform.zcjym.focus();
+      window.alert("请填写注册校验码！");
+      return false;
+    }
+     if (document.wqform.domain.value=="")
+    {
+      document.wqform.domain.focus();
+      window.alert("请填写网站域名！");
+      return false;
+    }
+     if (document.wqform.company.value=="")
+    {
+      document.wqform.company.focus();
+      window.alert("请填写公司名称！");
+      return false;
+    }
+
+     if (document.wqform.prov.value=="-1")
+    {
+      document.wqform.prov.focus();
+      window.alert("请填写所在省份！");
+      return false;
+    }
+     if (document.wqform.city.value=="-1")
+    {
+      document.wqform.city.focus();
+      window.alert("请填写所在城市！");
+      return false;
+    }
+     if (document.wqform.address.value=="")
+    {
+      document.wqform.address.focus();
+      window.alert("请填写联系地址！");
+      return false;
+    }
+     if (document.wqform.zip.value=="")
+    {
+      document.wqform.zip.focus();
+      window.alert("请填写邮政编码！");
+      return false;
+    }
+
+     if (document.wqform.contact.value=="")
+    {
+      document.wqform.contact.focus();
+      window.alert("请填写联系人姓名！");
+      return false;
+    }
+    if (document.wqform.email.value.charAt(0)=="." ||        
+         document.wqform.email.value.charAt(0)=="@"||       
+         document.wqform.email.value.indexOf('@', 0) == -1 || 
+         document.wqform.email.value.indexOf('.', 0) == -1 || 
+         document.wqform.email.value.lastIndexOf("@")==document.wqform.email.value.length-1 || 
+         document.wqform.email.value.lastIndexOf(".")==document.wqform.email.value.length-1)
+     {
+      window.alert("Email地址格式不正确！");
+      document.wqform.email.focus();
+      return false;
+      }
+     if (document.wqform.phone.value=="")
+    {
+      document.wqform.phone.focus();
+      window.alert("请填写联系电话！");
+      return false;
+    }
+    return true;
+  } 
+  //-->
+</SCRIPT>
+</head>
+
+<body>
+<table width="761"  border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td><table width="100%"  border="0" cellpadding="10" cellspacing="1" bgcolor="#CCCCCC">
+      <tr>
+        <td bgcolor="#FFFFFF"><span class="STYLE10">广告样式</span></td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFFFF">120*60　｜<a href="12060/12060.rar">下载</a></td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFFFF"><p><a href="http://www.chinabank.com.cn" target="_blank"><img src="12060/12060.gif" width="120" height="60" border="0"></a></p>
+          <p><span class="STYLE7">使用说明：</span><span class="STYLE8">将该图片投放在您的网页中，然后将其链接至</span><a href="http://www.chinabank.com.cn" class="style5">http://www.chinabank.com.cn</a></p></td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFFFF">188*119　｜<a href="188119/188119.rar">下载</a></td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFFFF"><p><a href="http://www.chinabank.com.cn" target="_blank"><img src="188119/188119.gif" width="188" height="119" border="0"></a></p>
+          <p><span class="STYLE7">使用说明：</span><span class="STYLE8">将该图片投放在您的网页中，然后将其链接至</span><a href="http://www.chinabank.com.cn" class="style5">http://www.chinabank.com.cn</a></p></td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFFFF">248*143　｜<a href="248143/248143.rar">下载</a></td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFFFF"><p><a href="http://www.chinabank.com.cn" target="_blank"><img src="248143/248143.gif" width="248" height="143" border="0"></a></p>
+          <p><span class="STYLE7">使用说明：</span><span class="STYLE8">将该图片投放在您的网页中，然后将其链接至</span><a href="http://www.chinabank.com.cn" class="style5">http://www.chinabank.com.cn</a></p></td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFFFF">750*80　｜<a href="75080/75080.rar">下载</a></td>
+      </tr>
+      <tr>
+        <td bgcolor="#FFFFFF"><p><a href="http://www.chinabank.com.cn" target="_blank"><img src="75080/75080.gif" width="750" height="80" border="0"></a></p>
+          <p><span class="STYLE7">使用说明：</span><span class="STYLE8">将该图片投放在您的网页中，然后将其链接至</span><a href="http://www.chinabank.com.cn" class="style5">http://www.chinabank.com.cn</a></p></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+</body>
+</html>

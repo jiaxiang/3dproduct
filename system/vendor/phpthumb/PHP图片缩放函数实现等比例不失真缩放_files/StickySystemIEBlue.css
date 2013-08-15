@@ -1,0 +1,513 @@
+BODY {
+	TEXT-ALIGN: center; PADDING-BOTTOM: 0px; BACKGROUND-COLOR: #ffffff; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FONT-FAMILY: Arial, Helvetica, sans-serif; BACKGROUND-POSITION: 40px 50%; FONT-SIZE: 12px; PADDING-TOP: 0px
+}
+A IMG {
+	BORDER-BOTTOM-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-TOP-STYLE: none; BORDER-LEFT-STYLE: none
+}
+A:link {
+	COLOR: #1848b5; TEXT-DECORATION: none
+}
+A:visited {
+	COLOR: #1848b5; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #1848b5; TEXT-DECORATION: underline
+}
+TD {
+	TEXT-ALIGN: left
+}
+UL {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+LI {
+	LINE-HEIGHT: 23px; PADDING-LEFT: 10px; BACKGROUND: url(http://pubimage.360doc.com/arrow1.jpg) no-repeat left 50%; CLEAR: both
+}
+FONT {
+	LINE-HEIGHT: 150%
+}
+H1 {
+	LINE-HEIGHT: 150%
+}
+.highlight {
+	FONT-STYLE: normal; BACKGROUND: #ffff00
+}
+.sticky {
+	FONT-STYLE: normal; BACKGROUND: #e3edf8; COLOR: #466ea6; TEXT-DECORATION: underline
+}
+.afterseldiv {
+	WIDTH: 80px; HEIGHT: 40px
+}
+.addstidiv {
+	WIDTH: 80px; BACKGROUND: #dddddd; HEIGHT: 40px
+}
+.menu {
+	BORDER-BOTTOM: #b0d0ef 1px solid; BORDER-LEFT: #b0d0ef 1px solid; WIDTH: 80px; BACKGROUND: white; HEIGHT: 40px; BORDER-RIGHT: #b0d0ef 1px solid
+}
+.menuUnLogin {
+	BORDER-BOTTOM: #b0d0ef 1px solid; BORDER-LEFT: #b0d0ef 1px solid; WIDTH: 150px; BACKGROUND: white; HEIGHT: 22px; BORDER-RIGHT: #b0d0ef 1px solid
+}
+.flowbtnUP {
+	TEXT-ALIGN: left; BORDER-LEFT: #466ea6 1px solid; MARGIN: 0px 20px; FONT-SIZE: 12px; BORDER-TOP: #466ea6 1px solid; BORDER-RIGHT: #466ea6 1px solid
+}
+.flowbtnDOWN {
+	BORDER-BOTTOM: #466ea6 1px solid; TEXT-ALIGN: left; BORDER-LEFT: #466ea6 1px solid; MARGIN-LEFT: 20px; FONT-SIZE: 12px; BORDER-TOP: #466ea6 1px solid; MARGIN-RIGHT: 20px; BORDER-RIGHT: #466ea6 1px solid
+}
+.overflowbtnUP {
+	BACKGROUND-IMAGE: url(http://pubimage.360doc.com/bg_Selected.gif); TEXT-ALIGN: left; BORDER-LEFT: #466ea6 1px solid; MARGIN: 0px 20px; COLOR: white; FONT-SIZE: 12px; BORDER-TOP: #466ea6 1px solid; CURSOR: pointer; BORDER-RIGHT: #466ea6 1px solid
+}
+.overflowbtnDOWN {
+	BACKGROUND-IMAGE: url(http://pubimage.360doc.com/bg_Selected.gif); BORDER-BOTTOM: #466ea6 1px solid; TEXT-ALIGN: left; BORDER-LEFT: #466ea6 1px solid; COLOR: white; MARGIN-LEFT: 20px; FONT-SIZE: 12px; BORDER-TOP: #466ea6 1px solid; CURSOR: pointer; MARGIN-RIGHT: 20px; BORDER-RIGHT: #466ea6 1px solid
+}
+.stiedittxa {
+	WIDTH: 304px; HEIGHT: 100px; FONT-SIZE: 12px
+}
+.stieditbtn {
+	MARGIN-TOP: 3px; FONT-SIZE: 12px; MARGIN-RIGHT: 3px
+}
+.stickiesdiv {
+	BORDER-BOTTOM: #619cd8 1px solid; BORDER-LEFT: #619cd8 1px solid; WIDTH: 310px; HEIGHT: 90px; FONT-SIZE: 12px; OVERFLOW: auto; BORDER-RIGHT: #619cd8 1px solid
+}
+.stickiesdiv TD {
+	FONT-SIZE: 12px
+}
+.stickcondiv {
+	Z-INDEX: 200; POSITION: absolute; WIDTH: 312px; BACKGROUND: white; FLOAT: left; FONT-SIZE: 12px
+}
+.closedivdragenable {
+	BACKGROUND-IMAGE: url(http://pubimage.360doc.com/lay_bg.gif); TEXT-ALIGN: left; TEXT-INDENT: 10px; WIDTH: 312px; HEIGHT: 16px; PADDING-TOP: 10px
+}
+.closedivdragdisable {
+	BACKGROUND-IMAGE: url(http://pubimage.360doc.com/lay_bg.gif); TEXT-ALIGN: left; TEXT-INDENT: 10px; WIDTH: 312px; HEIGHT: 16px; PADDING-TOP: 10px
+}
+.turnbtn {
+	TEXT-ALIGN: left; WIDTH: 290px; COLOR: #4b689d; FONT-SIZE: 12px; CURSOR: default
+}
+.stickyitem {
+	WIDTH: 310px; HEIGHT: 20px
+}
+.stickytext {
+	WIDTH: 310px
+}
+.editstickydiv {
+	BORDER-BOTTOM: #619cd8 1px solid; TEXT-ALIGN: left; BORDER-LEFT: #619cd8 1px solid; BACKGROUND-COLOR: #e3edf8; HEIGHT: 161px; BORDER-RIGHT: #619cd8 1px solid
+}
+.editSelectdiv {
+	TEXT-ALIGN: left; HEIGHT: 25px
+}
+.ChangeDisplayDiv {
+	BORDER-BOTTOM: #619cd8 1px solid; TEXT-ALIGN: right; BORDER-LEFT: #619cd8 1px solid; BACKGROUND-COLOR: #e3edf8; WIDTH: 310px; HEIGHT: 28px; COLOR: #4b689d; FONT-SIZE: 12px; BORDER-RIGHT: #619cd8 1px solid
+}
+.nav8:link {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.nav8:visited {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.nav8:hover {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.nav8:active {
+	COLOR: #000000; TEXT-DECORATION: none
+}
+.btn_search {
+	BACKGROUND-IMAGE: url(http://pubimage.360doc.com/search.gif); BACKGROUND-REPEAT: no-repeat
+}
+.link_underline {
+	
+}
+.link_underline A:link {
+	COLOR: #1848b5; TEXT-DECORATION: underline
+}
+.link_underline A:visited {
+	COLOR: #1848b5; TEXT-DECORATION: underline
+}
+.link_underline A:hover {
+	COLOR: #1848b5; TEXT-DECORATION: underline
+}
+.link_green {
+	
+}
+.link_green A:link {
+	COLOR: #008000; TEXT-DECORATION: underline
+}
+.link_green A:visited {
+	COLOR: #008000; TEXT-DECORATION: underline
+}
+.link_green A:hover {
+	COLOR: #008000; TEXT-DECORATION: none
+}
+.link_red {
+	
+}
+.link_red A:link {
+	COLOR: #da0000; TEXT-DECORATION: underline
+}
+.link_red A:visited {
+	COLOR: #da0000; TEXT-DECORATION: underline
+}
+.link_red A:hover {
+	COLOR: #da0000; TEXT-DECORATION: none
+}
+wenzhang_bt_listnew .nav {
+	MARGIN-TOP: 0px
+}
+.wenzhang_tit {
+	TEXT-ALIGN: center; WIDTH: 740px
+}
+.wenzhang_con {
+	MIN-WIDTH: 728px; TEXT-ALIGN: left; BORDER-LEFT: #ebf4ea 1px solid; PADDING-BOTTOM: 0px; LINE-HEIGHT: 1.5; BACKGROUND-COLOR: #f4f9f3; MIN-HEIGHT: 245px; PADDING-LEFT: 23px; PADDING-RIGHT: 16px; WORD-WRAP: break-word; HEIGHT: auto !important; FONT-SIZE: 16px; WORD-BREAK: normal; BORDER-RIGHT: #ebf4ea 1px solid; PADDING-TOP: 0px
+}
+.wenzhang_bt {
+	TEXT-ALIGN: left; LINE-HEIGHT: 30px; BACKGROUND-COLOR: #edf3f7; MARGIN-TOP: 10px; PADDING-LEFT: 10px; HEIGHT: 28px; CLEAR: both; FONT-SIZE: 14px; FONT-WEIGHT: bold
+}
+.wenzhang_btnew1 {
+	TEXT-ALIGN: left; LINE-HEIGHT: 30px; MARGIN-TOP: 4px; PADDING-LEFT: 2px; HEIGHT: 28px; CLEAR: both; FONT-SIZE: 14px; FONT-WEIGHT: bold
+}
+.wenzhang_pl_fb_tit {
+	COLOR: #666; FONT-SIZE: 12px; FONT-WEIGHT: normal
+}
+.botton {
+	BACKGROUND-IMAGE: url(http://pubimage.360doc.com/botton.gif); BORDER-BOTTOM: #666 1px solid; BORDER-LEFT: #666 1px solid; PADDING-BOTTOM: 0px; PADDING-LEFT: 8px; PADDING-RIGHT: 8px; HEIGHT: 20px; COLOR: #666666; FONT-SIZE: 12px; BORDER-TOP: #666 1px solid; CURSOR: pointer; BORDER-RIGHT: #666 1px solid; PADDING-TOP: 0px
+}
+.box_1 {
+	BORDER-BOTTOM: #a1c0df 1px solid; BORDER-LEFT: #a1c0df 1px solid; BACKGROUND-COLOR: #e7f3fb; BORDER-TOP: #a1c0df 1px solid; BORDER-RIGHT: #a1c0df 1px solid
+}
+.box_6 {
+	BORDER-BOTTOM: #a9a9a9 1px solid; BORDER-LEFT: #a9a9a9 1px solid; BACKGROUND-COLOR: #ffffff; BORDER-TOP: #a9a9a9 1px solid; BORDER-RIGHT: #a9a9a9 1px solid
+}
+.cn_12_black {
+	LINE-HEIGHT: 150%; COLOR: #000000; FONT-SIZE: 12px
+}
+.wenzhang_cz_xx01 {
+	PADDING-BOTTOM: 0px; MARGIN: 0px 0px 0px 14px; PADDING-LEFT: 1px; WIDTH: 100px; PADDING-RIGHT: 0px; HEIGHT: 20px; PADDING-TOP: 0px
+}
+.wenzhang_pl_box {
+	BORDER-BOTTOM: #ccc 1px dashed; TEXT-ALIGN: left; MARGIN: 10px 0px 15px 30px; WIDTH: 685px; CLEAR: both
+}
+.wenzhang_pl_left {
+	WIDTH: 70px; FLOAT: left; HEIGHT: 70px
+}
+.wenzhang_pl_right {
+	TEXT-ALIGN: left; WIDTH: 655px; FLOAT: left
+}
+.pl_con {
+	LINE-HEIGHT: 25px; MARGIN: 5px 0px 10px; WIDTH: 100%; WORD-WRAP: break-word
+}
+.gt0 {
+	BORDER-BOTTOM: #ffffff 1px solid; BORDER-LEFT: #ffffff 1px solid; PADDING-BOTTOM: 2px; PADDING-LEFT: 4px; PADDING-RIGHT: 4px; FONT-SIZE: 12px; BORDER-TOP: #ffffff 1px solid; BORDER-RIGHT: #ffffff 1px solid; PADDING-TOP: 2px
+}
+.gt1 {
+	BORDER-BOTTOM: #a9a9a9 1px solid; BORDER-LEFT: #a9a9a9 1px solid; PADDING-BOTTOM: 2px; PADDING-LEFT: 4px; PADDING-RIGHT: 4px; BACKGROUND: #f1f1f1; FONT-SIZE: 12px; BORDER-TOP: #a9a9a9 1px solid; BORDER-RIGHT: #a9a9a9 1px solid; PADDING-TOP: 2px
+}
+.wenzhang_bt_list {
+	TEXT-ALIGN: left; LINE-HEIGHT: 25px; MARGIN-TOP: 10px; WIDTH: 100%; FONT-SIZE: 14px
+}
+.wenzhang_bt_list UL {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 22px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+.wenzhang_bt_list LI {
+	BACKGROUND-IMAGE: url(http://pubimage.360doc.com/an10.gif); LINE-HEIGHT: 28px; PADDING-LEFT: 17px; BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: 6px center
+}
+.wenzhang_bt_listCG {
+	TEXT-ALIGN: left; MARGIN-TOP: 10px; WIDTH: 100%; FONT-SIZE: 13px
+}
+.time3 {
+	COLOR: #767676; MARGIN-LEFT: 15px; FONT-SIZE: 12px
+}
+.left {
+	FLOAT: left
+}
+.right {
+	FLOAT: right
+}
+.index_main {
+	MARGIN: 0px auto; WIDTH: 936px
+}
+.WidthRight {
+	WIDTH: 200px
+}
+.pageqh {
+	TEXT-ALIGN: left; MARGIN: 0px auto; WIDTH: 952px; PADDING-TOP: 10px
+}
+.pageqh2 {
+	TEXT-ALIGN: left; MARGIN: 0px auto; PADDING-LEFT: 5px; WIDTH: 100%; PADDING-TOP: 0px
+}
+.more_wz {
+	PADDING-BOTTOM: 5px; MARGIN-TOP: -1px; PADDING-LEFT: 2px; WIDTH: 952px; PADDING-RIGHT: 2px; FLOAT: left; PADDING-TOP: 15px
+}
+.more_wz_tit {
+	MARGIN-LEFT: 5px
+}
+.link_blue {
+	
+}
+.link_blue A:link {
+	COLOR: #0061d4; TEXT-DECORATION: underline
+}
+.link_blue A:visited {
+	COLOR: #0061d4; TEXT-DECORATION: underline
+}
+.link_blue A:hover {
+	COLOR: #0061d4; TEXT-DECORATION: none
+}
+.wzlb_box {
+	WIDTH: 100%; MARGIN-BOTTOM: 15px
+}
+.wzlb_tit {
+	PADDING-BOTTOM: 4px; BACKGROUND-COLOR: #f1f6fa; PADDING-LEFT: 4px; PADDING-RIGHT: 4px; COLOR: #1848b5; FONT-SIZE: 14px; PADDING-TOP: 4px
+}
+.wzlb_tit A:link {
+	COLOR: #1848b5; TEXT-DECORATION: underline
+}
+.wzlb_tit A:visited {
+	COLOR: #1848b5; TEXT-DECORATION: underline
+}
+.wzlb_tit A:hover {
+	COLOR: #1848b5; TEXT-DECORATION: none
+}
+.wzlb_tit .time {
+	COLOR: #999999; MARGIN-LEFT: 15px; FONT-SIZE: 12px
+}
+.wzlb_tit .name {
+	MARGIN-LEFT: 5px; FONT-SIZE: 12px
+}
+.wzlb_tit .name A:link {
+	COLOR: #008000; TEXT-DECORATION: underline
+}
+.wzlb_tit .name A:visited {
+	COLOR: #008000; TEXT-DECORATION: underline
+}
+.wzlb_tit .name A:hover {
+	COLOR: #008000; TEXT-DECORATION: none
+}
+.wzlb_con {
+	LINE-HEIGHT: 22px; MARGIN: 5px; WORD-WRAP: break-word; WORD-BREAK: break-all
+}
+.login_box {
+	PADDING-LEFT: 8px; PADDING-TOP: 4px
+}
+.login_box_font {
+	TEXT-ALIGN: left; COLOR: #808000; FONT-SIZE: 14px; FONT-WEIGHT: bold
+}
+.spanCgCgLink {
+	COLOR: #1848b5
+}
+.spanCgCgLinkOnMouseOver {
+	COLOR: #1848b5; CURSOR: pointer; TEXT-DECORATION: underline
+}
+IMG {
+	BORDER-RIGHT-WIDTH: 0px; BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px
+}
+H3 {
+	PADDING-BOTTOM: 0px; LINE-HEIGHT: 29px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #5181ef; FONT-SIZE: 13px; FONT-WEIGHT: bold; PADDING-TOP: 0px
+}
+#container {
+	BORDER-BOTTOM-STYLE: none; TEXT-ALIGN: left; BORDER-RIGHT-STYLE: none; BACKGROUND-COLOR: #fff; MARGIN: 0px auto; WIDTH: 960px; BORDER-TOP-STYLE: none; BORDER-LEFT-STYLE: none
+}
+.navzt {
+	PADDING-BOTTOM: 0px; LINE-HEIGHT: 22px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #2aa41e; FONT-SIZE: 12px; FONT-WEIGHT: bold; PADDING-TOP: 0px
+}
+.header {
+	BORDER-BOTTOM: #d8e5f0 1px solid; MARGIN: 0px auto; WIDTH: 960px; BACKGROUND: url(http://pubimage.360doc.com/new/tb_01.gif) #fff no-repeat 24px 8px; HEIGHT: 21px
+}
+.day {
+	LINE-HEIGHT: 21px; PADDING-LEFT: 41px; FLOAT: left; COLOR: #989898
+}
+.help111 {
+	LINE-HEIGHT: 21px; PADDING-LEFT: 14px; WIDTH: 323px; BACKGROUND: url(http://pubimage.360doc.com/new/tb_02.gif) no-repeat 0px 6px; FLOAT: right; COLOR: #000
+}
+.help111 A:link {
+	COLOR: #000; TEXT-DECORATION: none
+}
+.help111 A:visited {
+	COLOR: #000; TEXT-DECORATION: none
+}
+.help111 A:hover {
+	COLOR: #000; TEXT-DECORATION: none
+}
+.help1 {
+	PADDING-LEFT: 27px; FONT-WEIGHT: normal
+}
+.help1 A:link {
+	COLOR: #154dbe; TEXT-DECORATION: underline
+}
+.help1 A:visited {
+	COLOR: #154dbe; TEXT-DECORATION: underline
+}
+.help1 A:hover {
+	COLOR: #154dbe; TEXT-DECORATION: none
+}
+.nav111 {
+	MARGIN: 0px auto; WIDTH: 950px; HEIGHT: 94px
+}
+.logo {
+	PADDING-LEFT: 22px; WIDTH: 162px; FLOAT: left; PADDING-TOP: 23px
+}
+.topnav {
+	WIDTH: 765px; FLOAT: left; PADDING-TOP: 6px
+}
+.mainbav {
+	BACKGROUND-COLOR: #e3ecf4; WIDTH: 734px; HEIGHT: 29px
+}
+.mainbav A:link {
+	COLOR: #f1840d; TEXT-DECORATION: underline
+}
+.mainbav A:visited {
+	COLOR: #f1840d; TEXT-DECORATION: underline
+}
+.mainbav A:hover {
+	COLOR: #f1840d; TEXT-DECORATION: none
+}
+.subnav {
+	BORDER-BOTTOM: #e3ecf4 1px solid; BORDER-LEFT: #e3ecf4 1px solid; MARGIN-TOP: 6px; PADDING-LEFT: 20px; WIDTH: 712px; HEIGHT: 42px; BORDER-TOP: #e3ecf4 1px solid; BORDER-RIGHT: #e3ecf4 1px solid
+}
+.sub_a {
+	WIDTH: 320px; FLOAT: left
+}
+.sub_a A:link {
+	COLOR: #f1840d; TEXT-DECORATION: none
+}
+.sub_a A:visited {
+	COLOR: #f1840d; TEXT-DECORATION: none
+}
+.sub_a A:hover {
+	COLOR: #f1840d; TEXT-DECORATION: underline
+}
+.sub_azt {
+	LINE-HEIGHT: 22px; FLOAT: left
+}
+.navzt A:link {
+	COLOR: #2a911f; TEXT-DECORATION: none
+}
+.navzt A:visited {
+	COLOR: #2a911f; TEXT-DECORATION: none
+}
+.navzt A:hover {
+	COLOR: #2a911f; TEXT-DECORATION: underline
+}
+.rel {
+	PADDING-BOTTOM: 10px; PADDING-LEFT: 5px; WIDTH: 900px; PADDING-RIGHT: 10px; FLOAT: left; CLEAR: both; PADDING-TOP: 10px
+}
+.relad {
+	WIDTH: 300px; FLOAT: left
+}
+.relart {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 20px; WIDTH: 550px; PADDING-RIGHT: 20px; FLOAT: left; PADDING-TOP: 5px
+}
+.footer {
+	TEXT-ALIGN: center; MARGIN-TOP: 15px; WIDTH: 960px; CLEAR: both; BORDER-TOP: #d8e5f0 1px solid; PADDING-TOP: 20px
+}
+.wenzhang_bt_listnew {
+	TEXT-ALIGN: left; LINE-HEIGHT: 28px; MARGIN-TOP: 8px; PADDING-LEFT: 24px; WIDTH: 100%; FONT-SIZE: 14px
+}
+.wenzhang_bt_listnew UL {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+.wenzhang_bt_listnew LI {
+	BACKGROUND-IMAGE: url(http://pubimage.360doc.com/an10.gif); LINE-HEIGHT: 28px; PADDING-LEFT: 17px; BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: 6px center
+}
+.wenzhang_ckgd {
+	FLOAT: right; FONT-SIZE: 12px
+}
+.mzcss {
+	PADDING-LEFT: 13px; FONT-SIZE: 12px
+}
+.greenkuang {
+	BORDER-BOTTOM: #dee1ac 1px solid; BORDER-LEFT: #dee1ac 1px solid; MARGIN-TOP: 13px; WIDTH: 680px; MARGIN-BOTTOM: 10px; HEIGHT: 38px; BORDER-TOP: #dee1ac 1px solid; BORDER-RIGHT: #dee1ac 1px solid
+}
+.greenkuang1 {
+	BORDER-BOTTOM: #dee1ac 1px solid; BORDER-LEFT: #dee1ac 1px solid; MARGIN: 1px; HEIGHT: 34px; BORDER-TOP: #dee1ac 1px solid; BORDER-RIGHT: #dee1ac 1px solid
+}
+.link_red_dark {
+	
+}
+.link_red_dark A:link {
+	COLOR: #b20000; TEXT-DECORATION: none
+}
+.link_red_dark A:visited {
+	COLOR: #b20000; TEXT-DECORATION: none
+}
+.link_red_dark A:hover {
+	COLOR: #b20000; TEXT-DECORATION: underline
+}
+.wztop2 {
+	LINE-HEIGHT: 27px; HEIGHT: 27px; FONT-SIZE: 14px; VERTICAL-ALIGN: middle
+}
+.mz {
+	
+}
+.mz A:link {
+	COLOR: #198400; TEXT-DECORATION: none
+}
+.mz A:visited {
+	COLOR: #198400; TEXT-DECORATION: none
+}
+.mz A:hover {
+	COLOR: #198400; TEXT-DECORATION: underline
+}
+.ym A:link {
+	COLOR: #2763ad; TEXT-DECORATION: underline
+}
+.ym A:visited {
+	COLOR: #2763ad; TEXT-DECORATION: underline
+}
+.ym A:hover {
+	COLOR: #2763ad; TEXT-DECORATION: none
+}
+.bulelink A:link {
+	COLOR: #1948b4; TEXT-DECORATION: none
+}
+.bulelink A:visited {
+	COLOR: #1948b4; TEXT-DECORATION: none
+}
+.bulelink A:hover {
+	COLOR: #1948b4; TEXT-DECORATION: underline
+}
+.pinglun {
+	BORDER-BOTTOM: #a8a8a8 1px solid; TEXT-ALIGN: center; BORDER-LEFT: #a8a8a8 1px solid; WIDTH: 680px; HEIGHT: 75px; COLOR: #767676; FONT-SIZE: 14px; BORDER-TOP: #a8a8a8 1px solid; BORDER-RIGHT: #a8a8a8 1px solid; PADDING-TOP: 48px
+}
+.bulebold {
+	COLOR: #1649b6; FONT-SIZE: 14px; FONT-WEIGHT: bold
+}
+.ziyewz {
+	PADDING-BOTTOM: 0px; LINE-HEIGHT: 29px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; COLOR: #5181ef; FONT-SIZE: 13px; FONT-WEIGHT: bold; PADDING-TOP: 0px
+}
+.ziyewz1 {
+	PADDING-BOTTOM: 0px; LINE-HEIGHT: 29px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FLOAT: left; COLOR: #f28b1c; FONT-SIZE: 16px; FONT-WEIGHT: bold; PADDING-TOP: 0px
+}
+.nav_wenzi {
+	WIDTH: 500px; HEIGHT: 29px; FONT-SIZE: 16px; FONT-WEIGHT: bold
+}
+.nav_wenzi SPAN {
+	PADDING-BOTTOM: 0px; LINE-HEIGHT: 29px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FLOAT: left; CURSOR: pointer; PADDING-TOP: 0px
+}
+.mainbavzt {
+	PADDING-LEFT: 10px; FLOAT: left
+}
+.mainbavzt A:link {
+	COLOR: #5181ef; TEXT-DECORATION: none
+}
+.mainbavzt A:visited {
+	COLOR: #5181ef; TEXT-DECORATION: none
+}
+.mainbavzt A:hover {
+	COLOR: #5181ef; TEXT-DECORATION: underline
+}
+.spanCgCgLink {
+	COLOR: #1848b5
+}
+.spanCgCgLinkOnMouseOver {
+	COLOR: #1848b5; CURSOR: pointer; TEXT-DECORATION: underline
+}
+.spanCgCgLinkOnMouseOut {
+	COLOR: #1848b5; TEXT-DECORATION: none
+}
+.spanCGCGDeleteLink {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.spanCGCGDeleteOnMouseOut {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.spanCGCGDeleteOnMouseOver {
+	COLOR: #ff0000; CURSOR: pointer; TEXT-DECORATION: none
+}

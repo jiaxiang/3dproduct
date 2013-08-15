@@ -1,0 +1,156 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>科泰图形接口说明文档</title>
+<style>
+.main { margin:0 auto;max-width:960px; }
+h1{ 
+font-family:Arial;
+font-size:32px;
+font-weight:bold;
+letter-spacing:0.2em;
+margin:0.7em 0 0;
+text-align:center; }
+h2, h3, h4 {
+background-color:#E5ECF9;
+border-top:1px solid #3366CC;
+font-weight:bold;
+letter-spacing:0.15em;
+margin:1.2em 0 0.5em;
+padding:3px 3px 3px 1em;
+position:relative;
+}
+p{
+padding:4px 2.5em;
+font-size: 14px;
+line-height:20px;
+}
+table{
+border-collapse:collapse;
+border-spacing:0;
+line-height:120%;
+margin:4px auto;
+width:100%;
+}
+th, td {
+border:1px solid #3366CC;
+padding:6px 12px;
+text-align:left;
+vertical-align:top;
+font-size:14px;
+}
+th {
+background-color:#E5ECF9;
+font-weight:bold;
+}
+</style>
+</head>
+<body>
+<div class="main">
+	<h1>科泰 chart API 参考文档</h1>
+	
+	<h3>文档信息</h3>
+	<p>
+	信息编写：葛海峰 haifeng0505@gmail.com<br>
+	版权归属：南京科泰信息科技有限公司，<font color="Red">转载此页面请务必以链接形式注明出处！</font>
+	</p>
+	
+	<h3>简介</h3>
+	<p>
+	科泰 chart API 提供动态创建图表的功能。<br>
+	当前具备的功能有：<a href="#lineGraph">折线图</a>、<a href="#lineGraph">柱形图</a>、<a href="#pie">饼状图</a><br>
+	之后还会做继续的开发，相应的文档也会更新,欢迎大家保持关注<br>
+	您可以在网页中使用<code>&lt;img&gt;</code>元素插入图表，当浏览器打开该网页时，chart API 提供即时图表。<br>
+	本文档将介绍 chart API 的参数设置。
+	</p>
+	
+	<h3 id="directory">目录列表</h3>
+	<p>
+	1.<a href="#example1">使用示例</a><br>
+	2.<a href="#parameters">公共参数列表</a><br>
+	3.<a href="#lineGraph">折线图、柱状图参数列表</a><br>
+	4.<a href="#pie">饼状图参数列表</a><br>
+	</p>
+	
+	<h3 id="example1">使用示例</h3>
+	<p>
+	<span style="float:right"><a href="#directory">返回目录</a></span>
+	点击下面的链接会看到下面的图片，这是一张折线图<br>
+	<a href="/sitestat/chart?type=lc&r=5&ma=100&mi=0&ct=01,02,03,04,05,06&ps1=40,30,56,61,43,66" target="_blank">/sitestat/chart?type=lc&r=5&ma=100&mi=0&ct=01,02,03,04,05,06&ps1=40,30,56,61,43,66</a><br>
+	<img src="/sitestat/chart?type=lc&r=5&ma=100&mi=0&ct=01,02,03,04,05,06&ps1=40,30,56,61,43,66"><br>
+	下面看到的是柱状图<br>
+	<a href="/sitestat/chart?type=bg&r=5&ma=100&mi=0&ct=01,02,03,04,05,06&ps1=40,30,56,61,43,66" target="_blank">/sitestat/chart?type=bg&r=5&ma=100&mi=0&ct=01,02,03,04,05,06&ps1=40,30,56,61,43,66</a><br>
+	<img src="/sitestat/chart?type=bg&r=5&ma=100&mi=0&ct=01,02,03,04,05,06&ps1=40,30,56,61,43,66"><br>
+	</p>
+	
+	<h3 id="parameters">公共参数列表</h3>
+	<p>
+	<span style="float:right"><a href="#directory">返回目录</a></span>
+	<b>图片类型</b><br>
+	现有的类型有：<a href="#lineGraph">折线图:type=lc</a>、<a href="#lineGraph">柱形图:type=bg</a>、<a href="#pie">饼状图type=pc</a><br>该项是必选参数<br>
+	<table>
+	<tr><th>参数</th><th>说明</th><th>示例</th></tr>
+	<tr><td>type=lc</td><td>折线图,x轴方向垂直分布</td><td><img src="/sitestat/chart?type=lc&w=240&h=180&r=5&ma=100&mi=0&ct=01,02,03,04,05,06&ps1=40,30,56,61,43,66"></td></tr>
+	<tr><td>type=bg</td><td>柱状图,x轴方向垂直分布</td><td><img src="/sitestat/chart?type=bg&w=240&h=180&r=5&ma=100&mi=0&ct=01,02,03,04,05,06&ps1=40,30,56,61,43,66"></td></tr>
+	<tr><td>type=pc</td><td>简单饼状图</td><td><img src="/sitestat/chart?type=pc"></td></tr>
+	</table>
+	<br>
+	<b>宽度高度设置</b>
+	<table>
+	<tr><th>参数</th><th>说明</th><th>示例</th></tr>
+	<tr><td>w=400</td><td>设置图片宽度，水平方向上的长度<br>可选参数，默认值400</td><td><img src="/sitestat/chart?type=bg&w=400&h=180&r=5&ma=100&mi=0&ct=01,02,03,04,05,06&ps1=40,30,56,61,43,66"><br>w=400</td></tr>
+	<tr><td>h=300</td><td>设置图片高度，垂直方向上的长度<br>可选参数，默认值300</td><td><img src="/sitestat/chart?type=bg&w=240&h=300&r=5&ma=100&mi=0&ct=01,02,03,04,05,06&ps1=40,30,56,61,43,66"><br>h=300</td></tr>
+	<tr><td>w=400<br>h=300</td><td>设置图片高度，垂直方向上的长度</td><td><img src="/sitestat/chart?type=bg&w=400&h=300&r=5&ma=100&mi=0&ct=01,02,03,04,05,06&ps1=40,30,56,61,43,66"><br>w=400&h=300</td></tr>
+	</table>
+	
+	<b>图片标题</b>
+	<table>
+	<tr><th>参数</th><th>说明</th><th>示例</th></tr>
+	<tr><td>t=example</td><td>设置图片的标题，并显示在图片上</td><td><img src="/sitestat/chart?type=bg&w=240&h=180&r=5&ma=100&mi=0&ct=01,02,03,04,05,06&ps1=40,30,56,61,43,66&t=example"><br>t=example</td></tr>
+	</table>
+	<br>
+	</p>
+	
+	<h3 id="lineGraph">柱状图和折线图参数</h3>
+	</p>
+	<span style="float:right"><a href="#directory">返回目录</a></span>
+	折线图:type=lc、柱形图:type=bg
+	<table>
+	<tr><th>参数</th><th>说明</th><th>示例</th></tr>
+	<tr><td>ma=50</td><td>最大值<br>必选参数<br>数字类型<br></td><td><img src="/sitestat/chart?type=lc&w=240&h=180&r=5&ma=50&mi=0&ct=01,02,03,04,05,06&ps1=40,30,25,36,22,9"><img src="/sitestat/chart?type=bg&w=240&h=180&r=5&ma=50&mi=0&ct=01,02,03,04,05,06&ps1=40,30,25,36,22,9"><br>ma=50</td></tr>
+	<tr><td>mi=20</td><td>最小值<br>必选参数<br>数字类型<br></td><td><img src="/sitestat/chart?type=lc&w=240&h=180&r=5&ma=50&mi=20&ct=01,02,03,04,05,06&ps1=40,30,25,36,22,46"><img src="/sitestat/chart?type=bg&w=240&h=180&r=5&ma=50&mi=20&ct=01,02,03,04,05,06&ps1=40,30,25,36,22,46"><br>min=20</td></tr>
+	<tr><td>r=10</td><td>垂直的行数<br>可选参数(默认值5)<br>整形数字<br></td><td><img src="/sitestat/chart?type=lc&w=240&h=180&r=10&ma=100&mi=0&ct=01,02,03,04,05,06&ps1=40,30,25,36,22,46"><img src="/sitestat/chart?type=bg&w=240&h=180&r=10&ma=100&mi=0&ct=01,02,03,04,05,06&ps1=40,30,25,36,22,46"><br>r=10</td></tr>
+	<tr><td>ct=10,20,30,40</td><td>设置横坐标的值<br>必选参数<br>字符类型</td><td><img src="/sitestat/chart?type=lc&w=240&h=180&r=5&ma=50&mi=0&ct=10,20,30,40&ps1=40,30,25,36"><img src="/sitestat/chart?type=bg&w=240&h=180&r=5&ma=50&mi=0&ct=10,20,30,40&ps1=40,30,25,36"><br>ct=10,20,30,40</td></tr>
+	<tr><td>sp=50</td><td>图形距离图片边的距离<br>可选参数(默认20)<br>单位像素</td><td><img src="/sitestat/chart?type=lc&w=240&h=180&r=10&ma=100&mi=0&sp=50&ct=01,02,03,04,05,06&ps1=40,30,25,36,22,46"><img src="/sitestat/chart?type=bg&w=240&h=180&r=10&ma=100&mi=0&sp=50&ct=01,02,03,04,05,06&ps1=40,30,25,36,22,46"><br>sp=50</td></tr>
+	<tr><td>t=example</td><td>图片的标题<br>可选参数(默认为空)<br>暂时只支持英文</td><td><img src="/sitestat/chart?type=lc&w=240&h=180&ma=100&mi=0&t=example&ct=01,02,03,04,05,06&ps1=40,30,25,36,22,46"><img src="/sitestat/chart?type=bg&w=240&h=180&ma=100&mi=0&t=example&ct=01,02,03,04,05,06&ps1=40,30,25,36,22,46"><br>t=example</td></tr>
+	<tr><td>g=2</td><td>数据的组数<br>可选参数(默认为1)<br>如果有多组数据，没有给该参数赋值，只显示一组数据<br>同时要对参数ps+n做调整<br><b>比如g=2:</b>ps1=0,10,20,30,40,50<br>ps2=100,90,80,70,60,50<br><b>比如g=1:</b>ps1=0,10,20,30,40,50</td><td><img src="/sitestat/chart?type=lc&w=240&h=180&ma=100&mi=0&g=2&ct=01,02,03,04,05,06&ps1=0,10,20,30,40,50&ps2=100,90,80,70,60,50"><img src="/sitestat/chart?type=bg&w=240&h=180&ma=100&mi=0&g=2&ct=01,02,03,04,05,06&ps1=0,10,20,30,40,50&ps2=100,90,80,70,60,50"><br>g=2</td></tr>
+	<tr><td>ps1=0,10,20,30,40,50<br>ps2=100,90,80,70,60,50<br>ps3=0,20,40,60,80,100</td><td>数据的组数，从ps1到ps+n<br>如果有n组数据那么g=n</td><td><img src="/sitestat/chart?type=lc&w=240&h=180&ma=100&mi=0&g=3&ct=01,02,03,04,05,06&ps1=0,10,20,30,40,50&ps2=100,90,80,70,60,50&ps3=0,20,40,60,80,100"><img src="/sitestat/chart?type=bg&w=240&h=180&ma=100&mi=0&g=3&ct=01,02,03,04,05,06&ps1=0,10,20,30,40,50&ps2=100,90,80,70,60,50&ps3=0,20,40,60,80,100"><br>g=3<br>ps1=0,10,20,30,40,50<br>ps2=100,90,80,70,60,50<br>ps3=0,20,40,60,80,100</td></tr>
+	<tr><td>clr1=255,0,0<br>clr2=0,255,0<br>clr1=0,0,255<br></td><td>对应每一个ps可以设置其颜色<br>ps2设置颜色就是clr2=xx,xx,xx<br>clr+n的值是RGB的值</td><td><img src="/sitestat/chart?type=lc&w=240&h=180&ma=100&mi=0&g=3&ct=01,02,03,04,05,06&ps1=10,10,10,10,10,10&ps2=50,50,50,50,50,50&ps3=90,90,90,90,90,90&clr1=255,0,0&clr2=0,255,0&clr3=0,0,255"><img src="/sitestat/chart?type=bg&w=240&h=180&ma=100&mi=0&g=3&ct=01,02,03,04,05,06&ps1=10,10,10,10,10,10&ps2=50,50,50,50,50,50&ps3=90,90,90,90,90,90&clr1=255,0,0&clr2=0,255,0&clr3=0,0,255"><br>clr1=255,0,0<br>clr2=0,255,0<br>clr1=0,0,255</td></tr>
+	</table>
+	无缺省值图形<br>
+	<a href="/sitestat/chart?type=lc&w=400&h=300&ma=100&mi=0&r=10&t=example&ct=01,02,03,04,05,06&sp=30&g=3&ps1=50,30,60,73,67,43&ps2=92,75,42,38,21,5&ps3=12,33,98,43,76,80&clr1=255,0,0&clr2=0,255,0&clr3=0,0,255" target="_blank">/sitestat/chart?type=lc&w=400&h=300&ma=100&mi=0&r=10&t=example&ct=01,02,03,04,05,06&sp=30&g=3&ps1=50,30,60,73,67,43&ps2=92,75,42,38,21,5&ps3=12,33,98,43,76,80&clr1=255,0,0&clr2=0,255,0&clr3=0,0,255</a><br>
+	<img src="/sitestat/chart?type=lc&w=400&h=300&ma=100&mi=0&r=10&t=example&ct=01,02,03,04,05,06&sp=30&g=3&ps1=50,30,60,73,67,43&ps2=92,75,42,38,21,5&ps3=12,33,98,43,76,80&clr1=255,0,0&clr2=0,255,0&clr3=0,0,255"><br>
+	
+	<a href="/sitestat/chart?type=bg&w=400&h=300&ma=100&mi=0&r=10&t=example&ct=01,02,03,04,05,06&sp=30&g=3&ps1=50,30,60,73,67,43&ps2=92,75,42,38,21,5&ps3=12,33,98,43,76,80&clr1=255,0,0&clr2=0,255,0&clr3=0,0,255" target="_blank">/sitestat/chart?type=bg&w=400&h=300&ma=100&mi=0&r=10&t=example&ct=01,02,03,04,05,06&sp=30&g=3&ps1=50,30,60,73,67,43&ps2=92,75,42,38,21,5&ps3=12,33,98,43,76,80&clr1=255,0,0&clr2=0,255,0&clr3=0,0,255</a><br>
+	<img src="/sitestat/chart?type=bg&w=400&h=300&ma=100&mi=0&r=10&t=example&ct=01,02,03,04,05,06&sp=30&g=3&ps1=50,30,60,73,67,43&ps2=92,75,42,38,21,5&ps3=12,33,98,43,76,80&clr1=255,0,0&clr2=0,255,0&clr3=0,0,255"><br>
+	</p>
+	
+	<h3 id="pie">饼状图参数列表</h3>
+	<p>
+	<span style="float:right"><a href="#directory">返回目录</a></span>
+	饼状图type=pc
+	<table>
+	<tr><th>参数</th><th>说明</th><th>示例</th></tr>
+	<tr><td>type=pc<br>ps=80,40,20,10,5</td><td>饼状图的数据列表</td><td><img src="/sitestat/chart?type=pc&ps=80,40,20,10,5"><br>ps=80,40,20,10,5</td></tr>
+	<tr><td>type=pc<br>ps=80,40,20,10,5<br>pts=first,second,third,forth,fifth</td><td>饼状图数据列表对应的数据说明</td><td><img src="/sitestat/chart?type=pc&ps=80,40,20,10,5&pts=first,second,third,forth,fifth"><br>pts=first,second,third,forth,fifth</td></tr>
+	<tr><td>type=pc<br>w=400&h=200<br>t=example<br>ps=80,40,20,10,5<br>pts=first,second,third,forth,fifth</td><td>饼状图的所有参数都设置</td><td><img src="/sitestat/chart?type=pc&w=400&h=200&t=example&ps=80,40,20,10,5&pts=first,second,third,forth,fifth"></td></tr>
+	</table>
+	</p>
+	
+	<br><br><br><br>
+	<center>Copyright © 2005-2010 南京科泰信息科技有限公司</center>
+	
+</div>
+</div>
+</body>
+</html>

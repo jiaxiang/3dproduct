@@ -1,0 +1,9 @@
+label.error {
+-moz-background-inline-policy:continuous;
+-moz-background-origin:padding;
+background:url(../images/warning.gif) no-repeat scroll 3px 50%;
+color:#E6594E;
+display:block;
+margin-bottom:0.5em;
+height:22px;margin-left:10px;
+padding:3px 5px 3px 21px;text-align:left;white-space:nowrap;}

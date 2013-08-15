@@ -1,2 +1,5 @@
-application/cache/*
-application/logs/*
+front/application/logs/*
+attatchment/*
+upload/*
+admin/application/logs/*
+admin/application/cache/*

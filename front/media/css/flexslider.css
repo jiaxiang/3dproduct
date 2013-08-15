@@ -1,0 +1,103 @@
+/*
+ * jQuery FlexSlider v1.8
+ * http://www.woothemes.com/flexslider/
+ *
+ * Copyright 2012 WooThemes
+ * Free to use under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+
+/* Browser Resets */
+.flex-container a:active,
+.flexslider a:active,
+.flex-container a:focus,
+.flexslider a:focus  {outline: none;}
+.slides,
+.flex-control-nav,
+.flex-direction-nav { margin: 0; padding: 0; }
+
+/* FlexSlider Necessary Styles
+*********************************/
+.flexslider {width: 100%; margin: 0; padding: 0;}
+.flexslider .slides { margin: 0; padding: 0; list-style: none; }
+.flexslider .slides > li { display: none;  -webkit-backface-visibility: hidden;} 
+.flexslider .slides img {max-width: 100%; display: block; }
+.flex-pauseplay span { text-transform: capitalize; }
+
+/* Clearfix for the .slides element */
+.slides:after {content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;}
+html[xmlns] .slides {display: block;}
+* html .slides {height: 1%;}
+
+/* No JavaScript Fallback */
+.no-js .slides > li:first-child {display: block;}
+
+/* FlexSlider Default Theme
+*********************************/
+.flexslider { position: relative; zoom: 1; }
+.flexslider .slides { zoom: 1; list-style: none; margin: 0; }
+.flexslider .slides > li {position: relative; }
+.flex-container,
+.flex-container-gallery { zoom: 1; position: relative;}
+
+/* Caption style */
+.flex-caption { }
+
+/* Direction Nav */
+.flex-direction-nav { height: 0; }
+.flex-direction-nav li a { 
+	display: block;  
+	position: absolute;  
+	cursor: pointer; 
+	text-indent: -999em; 
+	font-size: 0; 
+}
+
+.flex-direction-nav li .disabled { opacity: .3; filter:alpha(opacity=30); cursor: default; }
+
+/* Control Nav */
+.flex-control-nav { width: 100%; position: absolute;  margin: 0; padding: 0; }
+.flex-control-nav li { margin: 0; float: left; }
+.flex-control-nav li a { display: block;  cursor: pointer; font-size: 0; text-indent: -999em; }
+.flex-control-nav li a.active { cursor: default; }
+
+/* Custom CSS */
+body.home .flex-container-gallery .flex-control-nav,
+body.home .flex-container-gallery .flex-direction-nav { margin: 0; padding: 0; list-style: none; }
+
+.flex-control-nav { top: 30px; left: 20px; }
+.flex-control-nav li a { 
+	width: 10px; 
+	height: 10px;
+	line-height: 10px;  
+	margin-right: 3px; 
+	overflow: hidden; 
+	background-image: url(../images/slider-btn.png);
+	background-position: 0 0;
+}
+
+.flex-control-nav li a:hover,
+.flex-control-nav li a.active { 
+	background-position: 100% 0;
+}
+
+.flex-direction-nav li a { 
+	top: 20px; 
+	width: 30px; 
+	height: 30px;
+	background-repeat: no-repeat;
+	background-image: url(../images/slider-arrow.png);
+}
+
+.flex-direction-nav li .prev { 
+	right: 52px; 
+	background-position: 0 50%;
+}
+
+.flex-direction-nav li .next { 
+	right: 20px;
+	background-position: 100% 50%;
+}
+
+.flex-direction-nav li a { background-color: #333; }
+.flex-direction-nav li a:hover { background-color: #FF6600; }
